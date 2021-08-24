@@ -53,8 +53,10 @@ datab   equ $2000       ; base address of data
         sta tempo
         lda dnb+1
         sta tempo+1
+        *  Bug fix 08/2021 :
         asl tempo       ; tempo = tempo * 2
         rol tempo+1
+        *
         lda pkrd+1      ; save self modified address
         sta tempo3
         lda pkrd+2
