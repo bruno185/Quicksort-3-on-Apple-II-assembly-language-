@@ -41,6 +41,7 @@ datab   equ $2000       ; base address of data
         jsr outport
         jsr home
         prnstr strib
+        cr
         prnstr strib2
         cr
         cr
@@ -261,9 +262,9 @@ sRR     str "Rright : "
 sLL     str "Lleft  : "
 sspace  str " ; "
 endstr  str "End of program : 4096 integers sorted at $2000"
-strib   str "Tribute to Charles Antony Richard Hoare, "
-strib2  str "who invented QuickSort algorithm"
-sgene   str "Generating 4096 pseudo random 16 bits integers..."
+strib   str "A Tribute to Charles Antony Richard Hoare,"
+strib2  str "who invented QuickSort algorithm in 1961 !"
+sgene   str "Generating 4096 pseudo random 16 bits unsigned integers..."
 ssorting str "Sorting..."
 scheck  str "Checking..."
 serror  str "Error at : "
