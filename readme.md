@@ -7,6 +7,7 @@ It :
 
 * generates 4096 pseudo random 16 bits unsigned integers at memory address $2000
 * sorts these values, using a non recursive version of Hoare's algorithm
+* checks order
 
 This archive contains a disk image : use it with Applewin or your favourite Apple II emulator, and type brun qs.
 
