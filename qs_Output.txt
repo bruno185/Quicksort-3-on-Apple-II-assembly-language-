@@ -50,7 +50,7 @@
    47 |  3 macros.s      2 | Comment     | 11 |         |    0 | 00/8000               | * * * * MACROS * * * * 
    48 |  3 macros.s      3 | Comment     | 11 |         |    0 | 00/8000               | *
    49 |  3 macros.s      4 | Directive   | 11 |         |    0 | 00/8000               |             DO        0                 
-   50 |  3 macros.s    311 | Directive   | 11 |         |    0 | 00/8000               |             FIN                         
+   50 |  3 macros.s    310 | Directive   | 11 |         |    0 | 00/8000               |             FIN                         
    51 |  1     qs.s     14 | Empty       | 11 |         |    0 | 00/8000               |                                         
    52 |  1     qs.s     15 | Comment     | 11 |         |    0 | 00/8000               | *********************************************
    53 |  1     qs.s     16 | Comment     | 11 |         |    0 | 00/8000               | *  Bug fix :
