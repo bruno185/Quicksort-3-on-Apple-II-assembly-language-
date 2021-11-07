@@ -65,8 +65,8 @@
    62 |  1     qs.s     25 | Directive   | 11 |         |    0 | 00/8000               |             org       $8000             
    63 |  1     qs.s     26 | Comment     | 11 |         |    0 | 00/8000               | * init stack
    64 |  1     qs.s     27 | Code        | 11 |         |    2 | 00/8000 : A9 00       |             lda       #$00              ; init stack counter
-   65 |  1     qs.s     28 | Code        | 11 |         |    3 | 00/8002 : 8D 4D 87    |             sta       scount            
-   66 |  1     qs.s     29 | Code        | 11 |         |    3 | 00/8005 : 8D 4E 87    |             sta       scount+1          
+   65 |  1     qs.s     28 | Code        | 11 |         |    3 | 00/8002 : 8D 4C 87    |             sta       scount            
+   66 |  1     qs.s     29 | Code        | 11 |         |    3 | 00/8005 : 8D 4D 87    |             sta       scount+1          
    67 |  1     qs.s     30 | Code        | 11 |         |    2 | 00/8008 : A9 00       |             lda       #<{$7000}         ; init sptr to stack base address
    68 |  1     qs.s     31 | Code        | 11 |         |    2 | 00/800A : 85 06       |             sta       {$06}             
    69 |  1     qs.s     32 | Code        | 11 |         |    2 | 00/800C : A9 70       |             lda       #>{$7000}+1       
@@ -154,10 +154,10 @@
   155 |  1     qs.s     47 | Code        | 11 |         |    2 | 00/8096 : A9 8D       |             lda       #$8D              
   156 |  1     qs.s     47 | Code        | 11 |         |    3 | 00/8098 : 20 ED FD    |             jsr       {$FDED}           
   157 |  1     qs.s     48 | Macro       | 11 |         |    0 | 00/809B               |             prnstr    sgene             
-  158 |  1     qs.s     48 | Code        | 11 |         |    3 | 00/809B : AC E5 86    |             ldy       sgene             
+  158 |  1     qs.s     48 | Code        | 11 |         |    3 | 00/809B : AC E4 86    |             ldy       sgene             
   159 |  1     qs.s     48 | Code        | 11 |         |    2 | 00/809E : F0 0E       |             beq       ozunid_18         ; no char.
   160 |  1     qs.s     48 | Code        | 11 |         |    2 | 00/80A0 : A2 00       |             ldx       #$00              
-  161 |  1     qs.s     48 | Code        | 11 |         |    3 | 00/80A2 : BD E6 86    | ozunid_17   lda       sgene+1,x         
+  161 |  1     qs.s     48 | Code        | 11 |         |    3 | 00/80A2 : BD E5 86    | ozunid_17   lda       sgene+1,x         
   162 |  1     qs.s     48 | Code        | 11 |         |    2 | 00/80A5 : 09 80       |             ora       #$80              
   163 |  1     qs.s     48 | Code        | 11 |         |    3 | 00/80A7 : 20 ED FD    |             jsr       {$FDED}           
   164 |  1     qs.s     48 | Code        | 11 |         |    1 | 00/80AA : E8          |             inx                         
@@ -167,22 +167,22 @@
   168 |  1     qs.s     49 | Empty       | 11 |         |    0 | 00/80AE               |                                         
   169 |  1     qs.s     50 | Empty       | 11 |         |    0 | 00/80AE               |                                         
   170 |  1     qs.s     51 | Comment     | 11 |         |    0 | 00/80AE               | * poke dnb x 2 random bytes (2 bytes per integer)
-  171 |  1     qs.s     52 | Code        | 11 |         |    3 | 00/80AE : 20 CC 87    |             jsr       initrandom        
-  172 |  1     qs.s     53 | Code        | 11 |         |    3 | 00/80B1 : AD 4F 87    |             lda       dnb               
-  173 |  1     qs.s     54 | Code        | 11 |         |    3 | 00/80B4 : 8D 5B 87    |             sta       tempo             
-  174 |  1     qs.s     55 | Code        | 11 |         |    3 | 00/80B7 : AD 50 87    |             lda       dnb+1             
-  175 |  1     qs.s     56 | Code        | 11 |         |    3 | 00/80BA : 8D 5C 87    |             sta       tempo+1           
+  171 |  1     qs.s     52 | Code        | 11 |         |    3 | 00/80AE : 20 CB 87    |             jsr       initrandom        
+  172 |  1     qs.s     53 | Code        | 11 |         |    3 | 00/80B1 : AD 4E 87    |             lda       dnb               
+  173 |  1     qs.s     54 | Code        | 11 |         |    3 | 00/80B4 : 8D 5A 87    |             sta       tempo             
+  174 |  1     qs.s     55 | Code        | 11 |         |    3 | 00/80B7 : AD 4F 87    |             lda       dnb+1             
+  175 |  1     qs.s     56 | Code        | 11 |         |    3 | 00/80BA : 8D 5B 87    |             sta       tempo+1           
   176 |  1     qs.s     57 | Comment     | 11 |         |    0 | 00/80BD               |         *  Bug fix 08/2021 :
-  177 |  1     qs.s     58 | Code        | 11 |         |    3 | 00/80BD : 0E 5B 87    |             asl       tempo             ; tempo = tempo * 2
-  178 |  1     qs.s     59 | Code        | 11 |         |    3 | 00/80C0 : 2E 5C 87    |             rol       tempo+1           
+  177 |  1     qs.s     58 | Code        | 11 |         |    3 | 00/80BD : 0E 5A 87    |             asl       tempo             ; tempo = tempo * 2
+  178 |  1     qs.s     59 | Code        | 11 |         |    3 | 00/80C0 : 2E 5B 87    |             rol       tempo+1           
   179 |  1     qs.s     60 | Comment     | 11 |         |    0 | 00/80C3               |         *
   180 |  1     qs.s     61 | Code        | 11 |         |    3 | 00/80C3 : AD D3 80    |             lda       pkrd+1            ; save self modified address
-  181 |  1     qs.s     62 | Code        | 11 |         |    3 | 00/80C6 : 8D 61 87    |             sta       tempo3            
+  181 |  1     qs.s     62 | Code        | 11 |         |    3 | 00/80C6 : 8D 60 87    |             sta       tempo3            
   182 |  1     qs.s     63 | Code        | 11 |         |    3 | 00/80C9 : AD D4 80    |             lda       pkrd+2            
-  183 |  1     qs.s     64 | Code        | 11 |         |    3 | 00/80CC : 8D 62 87    |             sta       tempo3+1          
-  184 |  1     qs.s     65 | Code        | 11 |         |    3 | 00/80CF : 20 9F 87    | pokernd     jsr       random            
+  183 |  1     qs.s     64 | Code        | 11 |         |    3 | 00/80CC : 8D 61 87    |             sta       tempo3+1          
+  184 |  1     qs.s     65 | Code        | 11 |         |    3 | 00/80CF : 20 9E 87    | pokernd     jsr       random            
   185 |  1     qs.s     66 | Code        | 11 |         |    3 | 00/80D2 : 8D 00 20    | pkrd        sta       {$2000}           ; self modifying
-  186 |  1     qs.s     67 | Code        | 11 |         |    3 | 00/80D5 : 20 9F 87    |             jsr       random            
+  186 |  1     qs.s     67 | Code        | 11 |         |    3 | 00/80D5 : 20 9E 87    |             jsr       random            
   187 |  1     qs.s     68 | Code        | 11 |         |    3 | 00/80D8 : 8D 01 20    |             sta       {$2000}+1         
   188 |  1     qs.s     69 | Macro       | 11 |         |    0 | 00/80DB               |             m_inc     pkrd+1            
   189 |  1     qs.s     69 | Code        | 11 |         |    3 | 00/80DB : EE D3 80    |             inc       pkrd+1            
@@ -190,26 +190,26 @@
   191 |  1     qs.s     69 | Code        | 11 |         |    3 | 00/80E0 : EE D4 80    |             inc       pkrd+1+1          
   192 |  1     qs.s     69 | Empty       | 11 |         |    0 | 00/80E3               | ozunid_19                               
   193 |  1     qs.s     70 | Macro       | 11 |         |    0 | 00/80E3               |             m_dec     tempo             
-  194 |  1     qs.s     70 | Code        | 11 |         |    3 | 00/80E3 : AD 5B 87    |             lda       tempo             
+  194 |  1     qs.s     70 | Code        | 11 |         |    3 | 00/80E3 : AD 5A 87    |             lda       tempo             
   195 |  1     qs.s     70 | Code        | 11 |         |    2 | 00/80E6 : D0 03       |             bne       ozunid_20         
-  196 |  1     qs.s     70 | Code        | 11 |         |    3 | 00/80E8 : CE 5C 87    |             dec       tempo+1           
-  197 |  1     qs.s     70 | Code        | 11 |         |    3 | 00/80EB : CE 5B 87    | ozunid_20   dec       tempo             
-  198 |  1     qs.s     71 | Code        | 11 |         |    3 | 00/80EE : AD 5B 87    |             lda       tempo             
-  199 |  1     qs.s     72 | Code        | 11 |         |    3 | 00/80F1 : 0D 5C 87    |             ora       tempo+1           
+  196 |  1     qs.s     70 | Code        | 11 |         |    3 | 00/80E8 : CE 5B 87    |             dec       tempo+1           
+  197 |  1     qs.s     70 | Code        | 11 |         |    3 | 00/80EB : CE 5A 87    | ozunid_20   dec       tempo             
+  198 |  1     qs.s     71 | Code        | 11 |         |    3 | 00/80EE : AD 5A 87    |             lda       tempo             
+  199 |  1     qs.s     72 | Code        | 11 |         |    3 | 00/80F1 : 0D 5B 87    |             ora       tempo+1           
   200 |  1     qs.s     73 | Code        | 11 |         |    2 | 00/80F4 : D0 D9       |             bne       pokernd           
-  201 |  1     qs.s     74 | Code        | 11 |         |    3 | 00/80F6 : AD 61 87    |             lda       tempo3            ; restore self modified address
+  201 |  1     qs.s     74 | Code        | 11 |         |    3 | 00/80F6 : AD 60 87    |             lda       tempo3            ; restore self modified address
   202 |  1     qs.s     75 | Code        | 11 |         |    3 | 00/80F9 : 8D D3 80    |             sta       pkrd+1            
-  203 |  1     qs.s     76 | Code        | 11 |         |    3 | 00/80FC : AD 62 87    |             lda       tempo3+1          
+  203 |  1     qs.s     76 | Code        | 11 |         |    3 | 00/80FC : AD 61 87    |             lda       tempo3+1          
   204 |  1     qs.s     77 | Code        | 11 |         |    3 | 00/80FF : 8D D4 80    |             sta       pkrd+2            
   205 |  1     qs.s     78 | Empty       | 11 |         |    0 | 00/8102               |                                         
   206 |  1     qs.s     79 | Macro       | 11 |         |    0 | 00/8102               |             cr                          
   207 |  1     qs.s     79 | Code        | 11 |         |    2 | 00/8102 : A9 8D       |             lda       #$8D              
   208 |  1     qs.s     79 | Code        | 11 |         |    3 | 00/8104 : 20 ED FD    |             jsr       {$FDED}           
   209 |  1     qs.s     80 | Macro       | 11 |         |    0 | 00/8107               |             prnstr    ssorting          
-  210 |  1     qs.s     80 | Code        | 11 |         |    3 | 00/8107 : AC 20 87    |             ldy       ssorting          
+  210 |  1     qs.s     80 | Code        | 11 |         |    3 | 00/8107 : AC 1F 87    |             ldy       ssorting          
   211 |  1     qs.s     80 | Code        | 11 |         |    2 | 00/810A : F0 0E       |             beq       ozunid_22         ; no char.
   212 |  1     qs.s     80 | Code        | 11 |         |    2 | 00/810C : A2 00       |             ldx       #$00              
-  213 |  1     qs.s     80 | Code        | 11 |         |    3 | 00/810E : BD 21 87    | ozunid_21   lda       ssorting+1,x      
+  213 |  1     qs.s     80 | Code        | 11 |         |    3 | 00/810E : BD 20 87    | ozunid_21   lda       ssorting+1,x      
   214 |  1     qs.s     80 | Code        | 11 |         |    2 | 00/8111 : 09 80       |             ora       #$80              
   215 |  1     qs.s     80 | Code        | 11 |         |    3 | 00/8113 : 20 ED FD    |             jsr       {$FDED}           
   216 |  1     qs.s     80 | Code        | 11 |         |    1 | 00/8116 : E8          |             inx                         
@@ -221,96 +221,96 @@
   222 |  1     qs.s     83 | Comment     | 11 |         |    0 | 00/811A               | *
   223 |  1     qs.s     84 | Comment     | 11 |         |    0 | 00/811A               | *stack.push(0); // left
   224 |  1     qs.s     85 | Code        | 11 |         |    2 | 00/811A : A9 00       |             lda       #$00              
-  225 |  1     qs.s     86 | Code        | 11 |         |    3 | 00/811C : 8D 61 87    |             sta       tempo3            
-  226 |  1     qs.s     87 | Code        | 11 |         |    3 | 00/811F : 8D 62 87    |             sta       tempo3+1          
-  227 |  1     qs.s     88 | Code        | 11 |         |    3 | 00/8122 : 8D 5B 87    |             sta       tempo             
-  228 |  1     qs.s     89 | Code        | 11 |         |    3 | 00/8125 : 8D 5C 87    |             sta       tempo+1           
-  229 |  1     qs.s     90 | Code        | 11 |         |    3 | 00/8128 : 20 63 87    |             jsr       push              
+  225 |  1     qs.s     86 | Code        | 11 |         |    3 | 00/811C : 8D 60 87    |             sta       tempo3            
+  226 |  1     qs.s     87 | Code        | 11 |         |    3 | 00/811F : 8D 61 87    |             sta       tempo3+1          
+  227 |  1     qs.s     88 | Code        | 11 |         |    3 | 00/8122 : 8D 5A 87    |             sta       tempo             
+  228 |  1     qs.s     89 | Code        | 11 |         |    3 | 00/8125 : 8D 5B 87    |             sta       tempo+1           
+  229 |  1     qs.s     90 | Code        | 11 |         |    3 | 00/8128 : 20 62 87    |             jsr       push              
   230 |  1     qs.s     91 | Comment     | 11 |         |    0 | 00/812B               | *stack.push(arr.length - 1); // right
   231 |  1     qs.s     92 | Macro       | 11 |         |    0 | 00/812B               |             movshort  dnb;tempo;2       
   232 |  1     qs.s     92 | Code        | 11 |         |    2 | 00/812B : A2 00       |             ldx       #$00              
-  233 |  1     qs.s     92 | Code        | 11 |         |    3 | 00/812D : BD 4F 87    | ozunid_23   lda       dnb,x             
-  234 |  1     qs.s     92 | Code        | 11 |         |    3 | 00/8130 : 9D 5B 87    |             sta       tempo,x           
+  233 |  1     qs.s     92 | Code        | 11 |         |    3 | 00/812D : BD 4E 87    | ozunid_23   lda       dnb,x             
+  234 |  1     qs.s     92 | Code        | 11 |         |    3 | 00/8130 : 9D 5A 87    |             sta       tempo,x           
   235 |  1     qs.s     92 | Code        | 11 |         |    1 | 00/8133 : E8          |             inx                         
   236 |  1     qs.s     92 | Code        | 11 |         |    2 | 00/8134 : E0 02       |             cpx       #2                
   237 |  1     qs.s     92 | Code        | 11 |         |    2 | 00/8136 : D0 F5       |             bne       ozunid_23         
   238 |  1     qs.s     93 | Macro       | 11 |         |    0 | 00/8138               |             m_dec     tempo             
-  239 |  1     qs.s     93 | Code        | 11 |         |    3 | 00/8138 : AD 5B 87    |             lda       tempo             
+  239 |  1     qs.s     93 | Code        | 11 |         |    3 | 00/8138 : AD 5A 87    |             lda       tempo             
   240 |  1     qs.s     93 | Code        | 11 |         |    2 | 00/813B : D0 03       |             bne       ozunid_24         
-  241 |  1     qs.s     93 | Code        | 11 |         |    3 | 00/813D : CE 5C 87    |             dec       tempo+1           
-  242 |  1     qs.s     93 | Code        | 11 |         |    3 | 00/8140 : CE 5B 87    | ozunid_24   dec       tempo             
-  243 |  1     qs.s     94 | Code        | 11 |         |    3 | 00/8143 : 20 63 87    |             jsr       push              
+  241 |  1     qs.s     93 | Code        | 11 |         |    3 | 00/813D : CE 5B 87    |             dec       tempo+1           
+  242 |  1     qs.s     93 | Code        | 11 |         |    3 | 00/8140 : CE 5A 87    | ozunid_24   dec       tempo             
+  243 |  1     qs.s     94 | Code        | 11 |         |    3 | 00/8143 : 20 62 87    |             jsr       push              
   244 |  1     qs.s     95 | Empty       | 11 |         |    0 | 00/8146               |                                         
   245 |  1     qs.s     96 | Empty       | 11 |         |    0 | 00/8146               |                                         
   246 |  1     qs.s     97 | Comment     | 11 |         |    0 | 00/8146               | *
   247 |  1     qs.s     98 | Comment     | 11 |         |    0 | 00/8146               | * LOOP 1
   248 |  1     qs.s     99 | Comment     | 11 |         |    0 | 00/8146               | * do {
   249 |  1     qs.s    100 | Comment     | 11 |         |    0 | 00/8146               | * int right = stack.pop();
-  250 |  1     qs.s    101 | Code        | 11 |         |    3 | 00/8146 : 20 7F 87    | loop1       jsr       pop               
+  250 |  1     qs.s    101 | Code        | 11 |         |    3 | 00/8146 : 20 7E 87    | loop1       jsr       pop               
   251 |  1     qs.s    102 | Macro       | 11 |         |    0 | 00/8149               |             movshort  tempo;Rright;2    
   252 |  1     qs.s    102 | Code        | 11 |         |    2 | 00/8149 : A2 00       |             ldx       #$00              
-  253 |  1     qs.s    102 | Code        | 11 |         |    3 | 00/814B : BD 5B 87    | ozunid_25   lda       tempo,x           
-  254 |  1     qs.s    102 | Code        | 11 |         |    3 | 00/814E : 9D 51 87    |             sta       Rright,x          
+  253 |  1     qs.s    102 | Code        | 11 |         |    3 | 00/814B : BD 5A 87    | ozunid_25   lda       tempo,x           
+  254 |  1     qs.s    102 | Code        | 11 |         |    3 | 00/814E : 9D 50 87    |             sta       Rright,x          
   255 |  1     qs.s    102 | Code        | 11 |         |    1 | 00/8151 : E8          |             inx                         
   256 |  1     qs.s    102 | Code        | 11 |         |    2 | 00/8152 : E0 02       |             cpx       #2                
   257 |  1     qs.s    102 | Code        | 11 |         |    2 | 00/8154 : D0 F5       |             bne       ozunid_25         
   258 |  1     qs.s    103 | Empty       | 11 |         |    0 | 00/8156               |                                         
   259 |  1     qs.s    104 | Comment     | 11 |         |    0 | 00/8156               | *int left = stack.pop();
-  260 |  1     qs.s    105 | Code        | 11 |         |    3 | 00/8156 : 20 7F 87    |             jsr       pop               
+  260 |  1     qs.s    105 | Code        | 11 |         |    3 | 00/8156 : 20 7E 87    |             jsr       pop               
   261 |  1     qs.s    106 | Macro       | 11 |         |    0 | 00/8159               |             movshort  tempo;Lleft;2     
   262 |  1     qs.s    106 | Code        | 11 |         |    2 | 00/8159 : A2 00       |             ldx       #$00              
-  263 |  1     qs.s    106 | Code        | 11 |         |    3 | 00/815B : BD 5B 87    | ozunid_26   lda       tempo,x           
-  264 |  1     qs.s    106 | Code        | 11 |         |    3 | 00/815E : 9D 55 87    |             sta       Lleft,x           
+  263 |  1     qs.s    106 | Code        | 11 |         |    3 | 00/815B : BD 5A 87    | ozunid_26   lda       tempo,x           
+  264 |  1     qs.s    106 | Code        | 11 |         |    3 | 00/815E : 9D 54 87    |             sta       Lleft,x           
   265 |  1     qs.s    106 | Code        | 11 |         |    1 | 00/8161 : E8          |             inx                         
   266 |  1     qs.s    106 | Code        | 11 |         |    2 | 00/8162 : E0 02       |             cpx       #2                
   267 |  1     qs.s    106 | Code        | 11 |         |    2 | 00/8164 : D0 F5       |             bne       ozunid_26         
   268 |  1     qs.s    107 | Comment     | 11 |         |    0 | 00/8166               | * --subArray;
   269 |  1     qs.s    108 | Macro       | 11 |         |    0 | 00/8166               |             m_dec     scount            
-  270 |  1     qs.s    108 | Code        | 11 |         |    3 | 00/8166 : AD 4D 87    |             lda       scount            
+  270 |  1     qs.s    108 | Code        | 11 |         |    3 | 00/8166 : AD 4C 87    |             lda       scount            
   271 |  1     qs.s    108 | Code        | 11 |         |    2 | 00/8169 : D0 03       |             bne       ozunid_27         
-  272 |  1     qs.s    108 | Code        | 11 |         |    3 | 00/816B : CE 4E 87    |             dec       scount+1          
-  273 |  1     qs.s    108 | Code        | 11 |         |    3 | 00/816E : CE 4D 87    | ozunid_27   dec       scount            
+  272 |  1     qs.s    108 | Code        | 11 |         |    3 | 00/816B : CE 4D 87    |             dec       scount+1          
+  273 |  1     qs.s    108 | Code        | 11 |         |    3 | 00/816E : CE 4C 87    | ozunid_27   dec       scount            
   274 |  1     qs.s    109 | Comment     | 11 |         |    0 | 00/8171               | *
   275 |  1     qs.s    110 | Comment     | 11 |         |    0 | 00/8171               | * LOOP 2
   276 |  1     qs.s    111 | Comment     | 11 |         |    0 | 00/8171               | *int _left = left;
   277 |  1     qs.s    112 | Comment     | 11 |         |    0 | 00/8171               | *int _right = right;
   278 |  1     qs.s    113 | Macro       | 11 |         |    0 | 00/8171               | loop2       movshort  Lleft;left;2      
   279 |  1     qs.s    113 | Code        | 11 |         |    2 | 00/8171 : A2 00       |             ldx       #$00              
-  280 |  1     qs.s    113 | Code        | 11 |         |    3 | 00/8173 : BD 55 87    | ozunid_28   lda       Lleft,x           
-  281 |  1     qs.s    113 | Code        | 11 |         |    3 | 00/8176 : 9D 57 87    |             sta       left,x            
+  280 |  1     qs.s    113 | Code        | 11 |         |    3 | 00/8173 : BD 54 87    | ozunid_28   lda       Lleft,x           
+  281 |  1     qs.s    113 | Code        | 11 |         |    3 | 00/8176 : 9D 56 87    |             sta       left,x            
   282 |  1     qs.s    113 | Code        | 11 |         |    1 | 00/8179 : E8          |             inx                         
   283 |  1     qs.s    113 | Code        | 11 |         |    2 | 00/817A : E0 02       |             cpx       #2                
   284 |  1     qs.s    113 | Code        | 11 |         |    2 | 00/817C : D0 F5       |             bne       ozunid_28         
   285 |  1     qs.s    114 | Macro       | 11 |         |    0 | 00/817E               |             movshort  Rright;right;2    
   286 |  1     qs.s    114 | Code        | 11 |         |    2 | 00/817E : A2 00       |             ldx       #$00              
-  287 |  1     qs.s    114 | Code        | 11 |         |    3 | 00/8180 : BD 51 87    | ozunid_29   lda       Rright,x          
-  288 |  1     qs.s    114 | Code        | 11 |         |    3 | 00/8183 : 9D 53 87    |             sta       right,x           
+  287 |  1     qs.s    114 | Code        | 11 |         |    3 | 00/8180 : BD 50 87    | ozunid_29   lda       Rright,x          
+  288 |  1     qs.s    114 | Code        | 11 |         |    3 | 00/8183 : 9D 52 87    |             sta       right,x           
   289 |  1     qs.s    114 | Code        | 11 |         |    1 | 00/8186 : E8          |             inx                         
   290 |  1     qs.s    114 | Code        | 11 |         |    2 | 00/8187 : E0 02       |             cpx       #2                
   291 |  1     qs.s    114 | Code        | 11 |         |    2 | 00/8189 : D0 F5       |             bne       ozunid_29         
   292 |  1     qs.s    115 | Comment     | 11 |         |    0 | 00/818B               | * 
   293 |  1     qs.s    116 | Comment     | 11 |         |    0 | 00/818B               | *int pivot = arr[(left + right) / 2];
-  294 |  1     qs.s    117 | Code        | 11 |         |    3 | 00/818B : AD 58 87    |             lda       left+1            ; tempo1 = left / 2
+  294 |  1     qs.s    117 | Code        | 11 |         |    3 | 00/818B : AD 57 87    |             lda       left+1            ; tempo1 = left / 2
   295 |  1     qs.s    118 | Code        | 11 |         |    1 | 00/818E : 4A          |             lsr                         
-  296 |  1     qs.s    119 | Code        | 11 |         |    3 | 00/818F : 8D 5E 87    |             sta       tempo1+1          
-  297 |  1     qs.s    120 | Code        | 11 |         |    3 | 00/8192 : AD 57 87    |             lda       left              
+  296 |  1     qs.s    119 | Code        | 11 |         |    3 | 00/818F : 8D 5D 87    |             sta       tempo1+1          
+  297 |  1     qs.s    120 | Code        | 11 |         |    3 | 00/8192 : AD 56 87    |             lda       left              
   298 |  1     qs.s    121 | Code        | 11 |         |    1 | 00/8195 : 6A          |             ror                         
-  299 |  1     qs.s    122 | Code        | 11 |         |    3 | 00/8196 : 8D 5D 87    |             sta       tempo1            
+  299 |  1     qs.s    122 | Code        | 11 |         |    3 | 00/8196 : 8D 5C 87    |             sta       tempo1            
   300 |  1     qs.s    123 | Empty       | 11 |         |    0 | 00/8199               |                                         
-  301 |  1     qs.s    124 | Code        | 11 |         |    3 | 00/8199 : AD 54 87    |             lda       right+1           ; tempo2 = right  / 2
+  301 |  1     qs.s    124 | Code        | 11 |         |    3 | 00/8199 : AD 53 87    |             lda       right+1           ; tempo2 = right  / 2
   302 |  1     qs.s    125 | Code        | 11 |         |    1 | 00/819C : 4A          |             lsr                         
-  303 |  1     qs.s    126 | Code        | 11 |         |    3 | 00/819D : 8D 60 87    |             sta       tempo2+1          
-  304 |  1     qs.s    127 | Code        | 11 |         |    3 | 00/81A0 : AD 53 87    |             lda       right             
+  303 |  1     qs.s    126 | Code        | 11 |         |    3 | 00/819D : 8D 5F 87    |             sta       tempo2+1          
+  304 |  1     qs.s    127 | Code        | 11 |         |    3 | 00/81A0 : AD 52 87    |             lda       right             
   305 |  1     qs.s    128 | Code        | 11 |         |    1 | 00/81A3 : 6A          |             ror                         
-  306 |  1     qs.s    129 | Code        | 11 |         |    3 | 00/81A4 : 8D 5F 87    |             sta       tempo2            
+  306 |  1     qs.s    129 | Code        | 11 |         |    3 | 00/81A4 : 8D 5E 87    |             sta       tempo2            
   307 |  1     qs.s    130 | Empty       | 11 |         |    0 | 00/81A7               |                                         
-  308 |  1     qs.s    131 | Code        | 11 |         |    3 | 00/81A7 : AD 5D 87    |             lda       tempo1            ; tempo1 tempo1 + tempo2
+  308 |  1     qs.s    131 | Code        | 11 |         |    3 | 00/81A7 : AD 5C 87    |             lda       tempo1            ; tempo1 tempo1 + tempo2
   309 |  1     qs.s    132 | Code        | 11 |         |    1 | 00/81AA : 18          |             clc                         
-  310 |  1     qs.s    133 | Code        | 11 |         |    3 | 00/81AB : 6D 5F 87    |             adc       tempo2            
-  311 |  1     qs.s    134 | Code        | 11 |         |    3 | 00/81AE : 8D 5D 87    |             sta       tempo1            
-  312 |  1     qs.s    135 | Code        | 11 |         |    3 | 00/81B1 : AD 5E 87    |             lda       tempo1+1          
-  313 |  1     qs.s    136 | Code        | 11 |         |    3 | 00/81B4 : 6D 60 87    |             adc       tempo2+1          
-  314 |  1     qs.s    137 | Code        | 11 |         |    3 | 00/81B7 : 8D 5E 87    |             sta       tempo1+1          
+  310 |  1     qs.s    133 | Code        | 11 |         |    3 | 00/81AB : 6D 5E 87    |             adc       tempo2            
+  311 |  1     qs.s    134 | Code        | 11 |         |    3 | 00/81AE : 8D 5C 87    |             sta       tempo1            
+  312 |  1     qs.s    135 | Code        | 11 |         |    3 | 00/81B1 : AD 5D 87    |             lda       tempo1+1          
+  313 |  1     qs.s    136 | Code        | 11 |         |    3 | 00/81B4 : 6D 5F 87    |             adc       tempo2+1          
+  314 |  1     qs.s    137 | Code        | 11 |         |    3 | 00/81B7 : 8D 5D 87    |             sta       tempo1+1          
   315 |  1     qs.s    138 | Empty       | 11 |         |    0 | 00/81BA               |                                         
   316 |  1     qs.s    139 | Comment     | 11 |         |    0 | 00/81BA               | * pivot = array[tempo1] 
   317 |  1     qs.s    140 | Macro       | 11 |         |    0 | 00/81BA               |             getelem   {$2000};tempo1;pivot
@@ -321,10 +321,10 @@
   322 |  1     qs.s    140 | Code        | 11 |         |    3 | 00/81C3 : 8D BD 81    |             sta       ozunid_30         
   323 |  1     qs.s    140 | Code        | 11 |         |    2 | 00/81C6 : A9 20       |             lda       #>{$2000}         
   324 |  1     qs.s    140 | Code        | 11 |         |    3 | 00/81C8 : 8D BE 81    |             sta       ozunid_30+1       
-  325 |  1     qs.s    140 | Code        | 11 |         |    3 | 00/81CB : AD 5D 87    |             lda       tempo1            ; index x 2 (2 bytes per element)
+  325 |  1     qs.s    140 | Code        | 11 |         |    3 | 00/81CB : AD 5C 87    |             lda       tempo1            ; index x 2 (2 bytes per element)
   326 |  1     qs.s    140 | Code        | 11 |         |    1 | 00/81CE : 0A          |             asl                         ; stored in tmp
   327 |  1     qs.s    140 | Code        | 11 |         |    3 | 00/81CF : 8D BF 81    |             sta       ozunid_31         
-  328 |  1     qs.s    140 | Code        | 11 |         |    3 | 00/81D2 : AD 5E 87    |             lda       tempo1+1          
+  328 |  1     qs.s    140 | Code        | 11 |         |    3 | 00/81D2 : AD 5D 87    |             lda       tempo1+1          
   329 |  1     qs.s    140 | Code        | 11 |         |    1 | 00/81D5 : 2A          |             rol                         
   330 |  1     qs.s    140 | Code        | 11 |         |    3 | 00/81D6 : 8D C0 81    |             sta       ozunid_31+1       
   331 |  1     qs.s    140 | Empty       | 11 |         |    0 | 00/81D9               |                                         
@@ -344,10 +344,10 @@
   346 |  1     qs.s    140 | Code        | 11 |         |    2 | 00/81F6 : D0 F6       |             bne       ozunid_33         
   347 |  1     qs.s    140 | Code        | 11 |         |    2 | 00/81F8 : A0 00       |             ldy       #$00              
   348 |  1     qs.s    140 | Code        | 11 |         |    2 | 00/81FA : B1 08       |             lda       ({$08}),y         
-  349 |  1     qs.s    140 | Code        | 11 |         |    3 | 00/81FC : 8D 59 87    |             sta       pivot             
+  349 |  1     qs.s    140 | Code        | 11 |         |    3 | 00/81FC : 8D 58 87    |             sta       pivot             
   350 |  1     qs.s    140 | Code        | 11 |         |    1 | 00/81FF : C8          |             iny                         
   351 |  1     qs.s    140 | Code        | 11 |         |    2 | 00/8200 : B1 08       |             lda       ({$08}),y         
-  352 |  1     qs.s    140 | Code        | 11 |         |    3 | 00/8202 : 8D 5A 87    |             sta       pivot+1           
+  352 |  1     qs.s    140 | Code        | 11 |         |    3 | 00/8202 : 8D 59 87    |             sta       pivot+1           
   353 |  1     qs.s    141 | Empty       | 11 |         |    0 | 00/8205               |                                         
   354 |  1     qs.s    142 | Comment     | 11 |         |    0 | 00/8205               | * LOOP 3
   355 |  1     qs.s    143 | Empty       | 11 |         |    0 | 00/8205               |                                         
@@ -364,10 +364,10 @@
   366 |  1     qs.s    149 | Code        | 11 |         |    3 | 00/820F : 8D 09 82    |             sta       ozunid_34         
   367 |  1     qs.s    149 | Code        | 11 |         |    2 | 00/8212 : A9 20       |             lda       #>{$2000}         
   368 |  1     qs.s    149 | Code        | 11 |         |    3 | 00/8214 : 8D 0A 82    |             sta       ozunid_34+1       
-  369 |  1     qs.s    149 | Code        | 11 |         |    3 | 00/8217 : AD 53 87    |             lda       right             ; index x 2 (2 bytes per element)
+  369 |  1     qs.s    149 | Code        | 11 |         |    3 | 00/8217 : AD 52 87    |             lda       right             ; index x 2 (2 bytes per element)
   370 |  1     qs.s    149 | Code        | 11 |         |    1 | 00/821A : 0A          |             asl                         ; stored in tmp
   371 |  1     qs.s    149 | Code        | 11 |         |    3 | 00/821B : 8D 0B 82    |             sta       ozunid_35         
-  372 |  1     qs.s    149 | Code        | 11 |         |    3 | 00/821E : AD 54 87    |             lda       right+1           
+  372 |  1     qs.s    149 | Code        | 11 |         |    3 | 00/821E : AD 53 87    |             lda       right+1           
   373 |  1     qs.s    149 | Code        | 11 |         |    1 | 00/8221 : 2A          |             rol                         
   374 |  1     qs.s    149 | Code        | 11 |         |    3 | 00/8222 : 8D 0C 82    |             sta       ozunid_35+1       
   375 |  1     qs.s    149 | Empty       | 11 |         |    0 | 00/8225               |                                         
@@ -387,26 +387,26 @@
   390 |  1     qs.s    149 | Code        | 11 |         |    2 | 00/8242 : D0 F6       |             bne       ozunid_37         
   391 |  1     qs.s    149 | Code        | 11 |         |    2 | 00/8244 : A0 00       |             ldy       #$00              
   392 |  1     qs.s    149 | Code        | 11 |         |    2 | 00/8246 : B1 08       |             lda       ({$08}),y         
-  393 |  1     qs.s    149 | Code        | 11 |         |    3 | 00/8248 : 8D 5B 87    |             sta       tempo             
+  393 |  1     qs.s    149 | Code        | 11 |         |    3 | 00/8248 : 8D 5A 87    |             sta       tempo             
   394 |  1     qs.s    149 | Code        | 11 |         |    1 | 00/824B : C8          |             iny                         
   395 |  1     qs.s    149 | Code        | 11 |         |    2 | 00/824C : B1 08       |             lda       ({$08}),y         
-  396 |  1     qs.s    149 | Code        | 11 |         |    3 | 00/824E : 8D 5C 87    |             sta       tempo+1           
+  396 |  1     qs.s    149 | Code        | 11 |         |    3 | 00/824E : 8D 5B 87    |             sta       tempo+1           
   397 |  1     qs.s    150 | Macro       | 11 |         |    0 | 00/8251               |             sup       tempo;pivot       ; is tempo > pivot ?
-  398 |  1     qs.s    150 | Code        | 11 |         |    3 | 00/8251 : AD 5C 87    |             lda       tempo+1           
-  399 |  1     qs.s    150 | Code        | 11 |         |    3 | 00/8254 : CD 5A 87    |             cmp       pivot+1           
+  398 |  1     qs.s    150 | Code        | 11 |         |    3 | 00/8251 : AD 5B 87    |             lda       tempo+1           
+  399 |  1     qs.s    150 | Code        | 11 |         |    3 | 00/8254 : CD 59 87    |             cmp       pivot+1           
   400 |  1     qs.s    150 | Code        | 11 |         |    2 | 00/8257 : F0 03       |             beq       ozunid_38         ; AH > BH see lo
   401 |  1     qs.s    150 | Code        | 11 |         |    3 | 00/8259 : 4C 65 82    |             jmp       ozunid_39         ; if A > B : C = 1, if A < B : C = 0
-  402 |  1     qs.s    150 | Code        | 11 |         |    3 | 00/825C : AD 5B 87    | ozunid_38   lda       tempo             
-  403 |  1     qs.s    150 | Code        | 11 |         |    3 | 00/825F : CD 59 87    |             cmp       pivot             
+  402 |  1     qs.s    150 | Code        | 11 |         |    3 | 00/825C : AD 5A 87    | ozunid_38   lda       tempo             
+  403 |  1     qs.s    150 | Code        | 11 |         |    3 | 00/825F : CD 58 87    |             cmp       pivot             
   404 |  1     qs.s    150 | Code        | 11 |         |    2 | 00/8262 : D0 01       |             bne       ozunid_39         ; A = B : C= 0; else C is set accordingly
   405 |  1     qs.s    150 | Code        | 11 |         |    1 | 00/8264 : 18          |             clc                         
   406 |  1     qs.s    150 | Empty       | 11 |         |    0 | 00/8265               | ozunid_39                               
   407 |  1     qs.s    151 | Code        | 11 |         |    2 | 00/8265 : 90 0E       |             bcc       next1             ; no : go next
   408 |  1     qs.s    152 | Macro       | 11 |         |    0 | 00/8267               |             m_dec     right             ; yes : dec right
-  409 |  1     qs.s    152 | Code        | 11 |         |    3 | 00/8267 : AD 53 87    |             lda       right             
+  409 |  1     qs.s    152 | Code        | 11 |         |    3 | 00/8267 : AD 52 87    |             lda       right             
   410 |  1     qs.s    152 | Code        | 11 |         |    2 | 00/826A : D0 03       |             bne       ozunid_40         
-  411 |  1     qs.s    152 | Code        | 11 |         |    3 | 00/826C : CE 54 87    |             dec       right+1           
-  412 |  1     qs.s    152 | Code        | 11 |         |    3 | 00/826F : CE 53 87    | ozunid_40   dec       right             
+  411 |  1     qs.s    152 | Code        | 11 |         |    3 | 00/826C : CE 53 87    |             dec       right+1           
+  412 |  1     qs.s    152 | Code        | 11 |         |    3 | 00/826F : CE 52 87    | ozunid_40   dec       right             
   413 |  1     qs.s    153 | Code        | 11 |         |    3 | 00/8272 : 4C 06 82    |             jmp       doright           ; and loop
   414 |  1     qs.s    154 | Empty       | 11 |         |    0 | 00/8275               |                                         
   415 |  1     qs.s    155 | Code        | 11 |         |    1 | 00/8275 : EA          | next1       nop                         
@@ -421,10 +421,10 @@
   424 |  1     qs.s    159 | Code        | 11 |         |    3 | 00/827F : 8D 79 82    |             sta       ozunid_41         
   425 |  1     qs.s    159 | Code        | 11 |         |    2 | 00/8282 : A9 20       |             lda       #>{$2000}         
   426 |  1     qs.s    159 | Code        | 11 |         |    3 | 00/8284 : 8D 7A 82    |             sta       ozunid_41+1       
-  427 |  1     qs.s    159 | Code        | 11 |         |    3 | 00/8287 : AD 57 87    |             lda       left              ; index x 2 (2 bytes per element)
+  427 |  1     qs.s    159 | Code        | 11 |         |    3 | 00/8287 : AD 56 87    |             lda       left              ; index x 2 (2 bytes per element)
   428 |  1     qs.s    159 | Code        | 11 |         |    1 | 00/828A : 0A          |             asl                         ; stored in tmp
   429 |  1     qs.s    159 | Code        | 11 |         |    3 | 00/828B : 8D 7B 82    |             sta       ozunid_42         
-  430 |  1     qs.s    159 | Code        | 11 |         |    3 | 00/828E : AD 58 87    |             lda       left+1            
+  430 |  1     qs.s    159 | Code        | 11 |         |    3 | 00/828E : AD 57 87    |             lda       left+1            
   431 |  1     qs.s    159 | Code        | 11 |         |    1 | 00/8291 : 2A          |             rol                         
   432 |  1     qs.s    159 | Code        | 11 |         |    3 | 00/8292 : 8D 7C 82    |             sta       ozunid_42+1       
   433 |  1     qs.s    159 | Empty       | 11 |         |    0 | 00/8295               |                                         
@@ -444,35 +444,35 @@
   448 |  1     qs.s    159 | Code        | 11 |         |    2 | 00/82B2 : D0 F6       |             bne       ozunid_44         
   449 |  1     qs.s    159 | Code        | 11 |         |    2 | 00/82B4 : A0 00       |             ldy       #$00              
   450 |  1     qs.s    159 | Code        | 11 |         |    2 | 00/82B6 : B1 08       |             lda       ({$08}),y         
-  451 |  1     qs.s    159 | Code        | 11 |         |    3 | 00/82B8 : 8D 5B 87    |             sta       tempo             
+  451 |  1     qs.s    159 | Code        | 11 |         |    3 | 00/82B8 : 8D 5A 87    |             sta       tempo             
   452 |  1     qs.s    159 | Code        | 11 |         |    1 | 00/82BB : C8          |             iny                         
   453 |  1     qs.s    159 | Code        | 11 |         |    2 | 00/82BC : B1 08       |             lda       ({$08}),y         
-  454 |  1     qs.s    159 | Code        | 11 |         |    3 | 00/82BE : 8D 5C 87    |             sta       tempo+1           
+  454 |  1     qs.s    159 | Code        | 11 |         |    3 | 00/82BE : 8D 5B 87    |             sta       tempo+1           
   455 |  1     qs.s    160 | Macro       | 11 |         |    0 | 00/82C1               |             sup       pivot;tempo       ; is pivot > tmepo ?
-  456 |  1     qs.s    160 | Code        | 11 |         |    3 | 00/82C1 : AD 5A 87    |             lda       pivot+1           
-  457 |  1     qs.s    160 | Code        | 11 |         |    3 | 00/82C4 : CD 5C 87    |             cmp       tempo+1           
+  456 |  1     qs.s    160 | Code        | 11 |         |    3 | 00/82C1 : AD 59 87    |             lda       pivot+1           
+  457 |  1     qs.s    160 | Code        | 11 |         |    3 | 00/82C4 : CD 5B 87    |             cmp       tempo+1           
   458 |  1     qs.s    160 | Code        | 11 |         |    2 | 00/82C7 : F0 03       |             beq       ozunid_45         ; AH > BH see lo
   459 |  1     qs.s    160 | Code        | 11 |         |    3 | 00/82C9 : 4C D5 82    |             jmp       ozunid_46         ; if A > B : C = 1, if A < B : C = 0
-  460 |  1     qs.s    160 | Code        | 11 |         |    3 | 00/82CC : AD 59 87    | ozunid_45   lda       pivot             
-  461 |  1     qs.s    160 | Code        | 11 |         |    3 | 00/82CF : CD 5B 87    |             cmp       tempo             
+  460 |  1     qs.s    160 | Code        | 11 |         |    3 | 00/82CC : AD 58 87    | ozunid_45   lda       pivot             
+  461 |  1     qs.s    160 | Code        | 11 |         |    3 | 00/82CF : CD 5A 87    |             cmp       tempo             
   462 |  1     qs.s    160 | Code        | 11 |         |    2 | 00/82D2 : D0 01       |             bne       ozunid_46         ; A = B : C= 0; else C is set accordingly
   463 |  1     qs.s    160 | Code        | 11 |         |    1 | 00/82D4 : 18          |             clc                         
   464 |  1     qs.s    160 | Empty       | 11 |         |    0 | 00/82D5               | ozunid_46                               
   465 |  1     qs.s    161 | Code        | 11 |         |    2 | 00/82D5 : 90 0B       |             bcc       next2             ; no : go next
   466 |  1     qs.s    162 | Macro       | 11 |         |    0 | 00/82D7               |             m_inc     left              ; yes : inc left
-  467 |  1     qs.s    162 | Code        | 11 |         |    3 | 00/82D7 : EE 57 87    |             inc       left              
+  467 |  1     qs.s    162 | Code        | 11 |         |    3 | 00/82D7 : EE 56 87    |             inc       left              
   468 |  1     qs.s    162 | Code        | 11 |         |    2 | 00/82DA : D0 03       |             bne       ozunid_47         
-  469 |  1     qs.s    162 | Code        | 11 |         |    3 | 00/82DC : EE 58 87    |             inc       left+1            
+  469 |  1     qs.s    162 | Code        | 11 |         |    3 | 00/82DC : EE 57 87    |             inc       left+1            
   470 |  1     qs.s    162 | Empty       | 11 |         |    0 | 00/82DF               | ozunid_47                               
   471 |  1     qs.s    163 | Code        | 11 |         |    3 | 00/82DF : 4C 76 82    |             jmp       doleft            ; and loop
   472 |  1     qs.s    164 | Empty       | 11 |         |    0 | 00/82E2               |                                         
   473 |  1     qs.s    165 | Code        | 11 |         |    1 | 00/82E2 : EA          | next2       nop                         
   474 |  1     qs.s    166 | Comment     | 11 |         |    0 | 00/82E3               | * if (_left <= _right) { "permut" }
   475 |  1     qs.s    167 | Macro       | 11 |         |    0 | 00/82E3               |             ssupeq    right;left        
-  476 |  1     qs.s    167 | Code        | 11 |         |    3 | 00/82E3 : AD 53 87    |             lda       right             
-  477 |  1     qs.s    167 | Code        | 11 |         |    3 | 00/82E6 : CD 57 87    |             cmp       left              
-  478 |  1     qs.s    167 | Code        | 11 |         |    3 | 00/82E9 : AD 54 87    |             lda       right+1           
-  479 |  1     qs.s    167 | Code        | 11 |         |    3 | 00/82EC : ED 58 87    |             sbc       left+1            
+  476 |  1     qs.s    167 | Code        | 11 |         |    3 | 00/82E3 : AD 52 87    |             lda       right             
+  477 |  1     qs.s    167 | Code        | 11 |         |    3 | 00/82E6 : CD 56 87    |             cmp       left              
+  478 |  1     qs.s    167 | Code        | 11 |         |    3 | 00/82E9 : AD 53 87    |             lda       right+1           
+  479 |  1     qs.s    167 | Code        | 11 |         |    3 | 00/82EC : ED 57 87    |             sbc       left+1            
   480 |  1     qs.s    167 | Code        | 11 |         |    2 | 00/82EF : 50 02       |             bvc       ozunid_48         ; N eor V
   481 |  1     qs.s    167 | Code        | 11 |         |    2 | 00/82F1 : 49 80       |             eor       #$80              
   482 |  1     qs.s    167 | Code        | 11 |         |    2 | 00/82F3 : 30 03       | ozunid_48   bmi       ozunid_49         
@@ -492,11 +492,11 @@
   496 |  1     qs.s    176 | Empty       | 11 |         |    0 | 00/8302               |                                         
   497 |  1     qs.s    177 | Empty       | 11 |         |    0 | 00/8302               | next3                                   
   498 |  1     qs.s    178 | Macro       | 11 |         |    0 | 00/8302               |             equal     left;right        ; left = right ?
-  499 |  1     qs.s    178 | Code        | 11 |         |    3 | 00/8302 : AD 57 87    |             lda       left              
-  500 |  1     qs.s    178 | Code        | 11 |         |    3 | 00/8305 : CD 53 87    |             cmp       right             
+  499 |  1     qs.s    178 | Code        | 11 |         |    3 | 00/8302 : AD 56 87    |             lda       left              
+  500 |  1     qs.s    178 | Code        | 11 |         |    3 | 00/8305 : CD 52 87    |             cmp       right             
   501 |  1     qs.s    178 | Code        | 11 |         |    2 | 00/8308 : D0 0B       |             bne       ozunid_52         
-  502 |  1     qs.s    178 | Code        | 11 |         |    3 | 00/830A : AD 58 87    |             lda       left+1            
-  503 |  1     qs.s    178 | Code        | 11 |         |    3 | 00/830D : CD 54 87    |             cmp       right+1           
+  502 |  1     qs.s    178 | Code        | 11 |         |    3 | 00/830A : AD 57 87    |             lda       left+1            
+  503 |  1     qs.s    178 | Code        | 11 |         |    3 | 00/830D : CD 53 87    |             cmp       right+1           
   504 |  1     qs.s    178 | Code        | 11 |         |    2 | 00/8310 : D0 03       |             bne       ozunid_52         
   505 |  1     qs.s    178 | Code        | 11 |         |    3 | 00/8312 : 4C 19 83    |             jmp       ozunid_53         
   506 |  1     qs.s    178 | Code        | 11 |         |    1 | 00/8315 : 18          | ozunid_52   clc                         
@@ -514,10 +514,10 @@
   518 |  1     qs.s    182 | Code        | 11 |         |    3 | 00/8328 : 8D 22 83    |             sta       ozunid_55         
   519 |  1     qs.s    182 | Code        | 11 |         |    2 | 00/832B : A9 20       |             lda       #>{$2000}         
   520 |  1     qs.s    182 | Code        | 11 |         |    3 | 00/832D : 8D 23 83    |             sta       ozunid_55+1       
-  521 |  1     qs.s    182 | Code        | 11 |         |    3 | 00/8330 : AD 57 87    |             lda       left              ; index x 2 (2 bytes per element)
+  521 |  1     qs.s    182 | Code        | 11 |         |    3 | 00/8330 : AD 56 87    |             lda       left              ; index x 2 (2 bytes per element)
   522 |  1     qs.s    182 | Code        | 11 |         |    1 | 00/8333 : 0A          |             asl                         ; stored in tmp
   523 |  1     qs.s    182 | Code        | 11 |         |    3 | 00/8334 : 8D 24 83    |             sta       ozunid_56         
-  524 |  1     qs.s    182 | Code        | 11 |         |    3 | 00/8337 : AD 58 87    |             lda       left+1            
+  524 |  1     qs.s    182 | Code        | 11 |         |    3 | 00/8337 : AD 57 87    |             lda       left+1            
   525 |  1     qs.s    182 | Code        | 11 |         |    1 | 00/833A : 2A          |             rol                         
   526 |  1     qs.s    182 | Code        | 11 |         |    3 | 00/833B : 8D 25 83    |             sta       ozunid_56+1       
   527 |  1     qs.s    182 | Empty       | 11 |         |    0 | 00/833E               |                                         
@@ -537,10 +537,10 @@
   542 |  1     qs.s    182 | Code        | 11 |         |    2 | 00/835B : D0 F6       |             bne       ozunid_58         
   543 |  1     qs.s    182 | Code        | 11 |         |    2 | 00/835D : A0 00       |             ldy       #$00              
   544 |  1     qs.s    182 | Code        | 11 |         |    2 | 00/835F : B1 08       |             lda       ({$08}),y         
-  545 |  1     qs.s    182 | Code        | 11 |         |    3 | 00/8361 : 8D 5B 87    |             sta       tempo             
+  545 |  1     qs.s    182 | Code        | 11 |         |    3 | 00/8361 : 8D 5A 87    |             sta       tempo             
   546 |  1     qs.s    182 | Code        | 11 |         |    1 | 00/8364 : C8          |             iny                         
   547 |  1     qs.s    182 | Code        | 11 |         |    2 | 00/8365 : B1 08       |             lda       ({$08}),y         
-  548 |  1     qs.s    182 | Code        | 11 |         |    3 | 00/8367 : 8D 5C 87    |             sta       tempo+1           
+  548 |  1     qs.s    182 | Code        | 11 |         |    3 | 00/8367 : 8D 5B 87    |             sta       tempo+1           
   549 |  1     qs.s    183 | Macro       | 11 |         |    0 | 00/836A               |             getelem   {$2000};right;tempo2
   550 |  1     qs.s    183 | Code        | 11 |         |    3 | 00/836A : 4C 71 83    |             jmp       ozunid_61         
   551 |  1     qs.s    183 | Data        | 11 |         |    2 | 00/836D : 00 00       | ozunid_59   hex       0000              
@@ -549,10 +549,10 @@
   554 |  1     qs.s    183 | Code        | 11 |         |    3 | 00/8373 : 8D 6D 83    |             sta       ozunid_59         
   555 |  1     qs.s    183 | Code        | 11 |         |    2 | 00/8376 : A9 20       |             lda       #>{$2000}         
   556 |  1     qs.s    183 | Code        | 11 |         |    3 | 00/8378 : 8D 6E 83    |             sta       ozunid_59+1       
-  557 |  1     qs.s    183 | Code        | 11 |         |    3 | 00/837B : AD 53 87    |             lda       right             ; index x 2 (2 bytes per element)
+  557 |  1     qs.s    183 | Code        | 11 |         |    3 | 00/837B : AD 52 87    |             lda       right             ; index x 2 (2 bytes per element)
   558 |  1     qs.s    183 | Code        | 11 |         |    1 | 00/837E : 0A          |             asl                         ; stored in tmp
   559 |  1     qs.s    183 | Code        | 11 |         |    3 | 00/837F : 8D 6F 83    |             sta       ozunid_60         
-  560 |  1     qs.s    183 | Code        | 11 |         |    3 | 00/8382 : AD 54 87    |             lda       right+1           
+  560 |  1     qs.s    183 | Code        | 11 |         |    3 | 00/8382 : AD 53 87    |             lda       right+1           
   561 |  1     qs.s    183 | Code        | 11 |         |    1 | 00/8385 : 2A          |             rol                         
   562 |  1     qs.s    183 | Code        | 11 |         |    3 | 00/8386 : 8D 70 83    |             sta       ozunid_60+1       
   563 |  1     qs.s    183 | Empty       | 11 |         |    0 | 00/8389               |                                         
@@ -572,10 +572,10 @@
   578 |  1     qs.s    183 | Code        | 11 |         |    2 | 00/83A6 : D0 F6       |             bne       ozunid_62         
   579 |  1     qs.s    183 | Code        | 11 |         |    2 | 00/83A8 : A0 00       |             ldy       #$00              
   580 |  1     qs.s    183 | Code        | 11 |         |    2 | 00/83AA : B1 08       |             lda       ({$08}),y         
-  581 |  1     qs.s    183 | Code        | 11 |         |    3 | 00/83AC : 8D 5F 87    |             sta       tempo2            
+  581 |  1     qs.s    183 | Code        | 11 |         |    3 | 00/83AC : 8D 5E 87    |             sta       tempo2            
   582 |  1     qs.s    183 | Code        | 11 |         |    1 | 00/83AF : C8          |             iny                         
   583 |  1     qs.s    183 | Code        | 11 |         |    2 | 00/83B0 : B1 08       |             lda       ({$08}),y         
-  584 |  1     qs.s    183 | Code        | 11 |         |    3 | 00/83B2 : 8D 60 87    |             sta       tempo2+1          
+  584 |  1     qs.s    183 | Code        | 11 |         |    3 | 00/83B2 : 8D 5F 87    |             sta       tempo2+1          
   585 |  1     qs.s    184 | Macro       | 11 |         |    0 | 00/83B5               |             setelem   {$2000};left;tempo2
   586 |  1     qs.s    184 | Code        | 11 |         |    3 | 00/83B5 : 4C BC 83    |             jmp       ozunid_65         
   587 |  1     qs.s    184 | Data        | 11 |         |    2 | 00/83B8 : 00 00       | ozunid_63   hex       0000              
@@ -585,10 +585,10 @@
   591 |  1     qs.s    184 | Code        | 11 |         |    2 | 00/83C1 : A9 20       |             lda       #>{$2000}         
   592 |  1     qs.s    184 | Code        | 11 |         |    3 | 00/83C3 : 8D B9 83    |             sta       ozunid_63+1       
   593 |  1     qs.s    184 | Empty       | 11 |         |    0 | 00/83C6               |                                         
-  594 |  1     qs.s    184 | Code        | 11 |         |    3 | 00/83C6 : AD 57 87    |             lda       left              ; index x 2 (2 bytes per element)
+  594 |  1     qs.s    184 | Code        | 11 |         |    3 | 00/83C6 : AD 56 87    |             lda       left              ; index x 2 (2 bytes per element)
   595 |  1     qs.s    184 | Code        | 11 |         |    1 | 00/83C9 : 0A          |             asl                         ; stored in stmp
   596 |  1     qs.s    184 | Code        | 11 |         |    3 | 00/83CA : 8D BA 83    |             sta       ozunid_64         
-  597 |  1     qs.s    184 | Code        | 11 |         |    3 | 00/83CD : AD 58 87    |             lda       left+1            
+  597 |  1     qs.s    184 | Code        | 11 |         |    3 | 00/83CD : AD 57 87    |             lda       left+1            
   598 |  1     qs.s    184 | Code        | 11 |         |    1 | 00/83D0 : 2A          |             rol                         
   599 |  1     qs.s    184 | Code        | 11 |         |    3 | 00/83D1 : 8D BB 83    |             sta       ozunid_64+1       
   600 |  1     qs.s    184 | Code        | 11 |         |    3 | 00/83D4 : AD B8 83    |             lda       ozunid_63         ; soffset = array addr. + index x 2
@@ -605,10 +605,10 @@
   612 |  1     qs.s    184 | Code        | 11 |         |    2 | 00/83EF : E0 02       |             cpx       #2                
   613 |  1     qs.s    184 | Code        | 11 |         |    2 | 00/83F1 : D0 F6       |             bne       ozunid_66         
   614 |  1     qs.s    184 | Code        | 11 |         |    2 | 00/83F3 : A0 00       |             ldy       #$00              ; poke value in array
-  615 |  1     qs.s    184 | Code        | 11 |         |    3 | 00/83F5 : AD 5F 87    |             lda       tempo2            
+  615 |  1     qs.s    184 | Code        | 11 |         |    3 | 00/83F5 : AD 5E 87    |             lda       tempo2            
   616 |  1     qs.s    184 | Code        | 11 |         |    2 | 00/83F8 : 91 08       |             sta       ({$08}),y         
   617 |  1     qs.s    184 | Code        | 11 |         |    1 | 00/83FA : C8          |             iny                         
-  618 |  1     qs.s    184 | Code        | 11 |         |    3 | 00/83FB : AD 60 87    |             lda       tempo2+1          
+  618 |  1     qs.s    184 | Code        | 11 |         |    3 | 00/83FB : AD 5F 87    |             lda       tempo2+1          
   619 |  1     qs.s    184 | Code        | 11 |         |    2 | 00/83FE : 91 08       |             sta       ({$08}),y         
   620 |  1     qs.s    185 | Macro       | 11 |         |    0 | 00/8400               |             setelem   {$2000};right;tempo
   621 |  1     qs.s    185 | Code        | 11 |         |    3 | 00/8400 : 4C 07 84    |             jmp       ozunid_69         
@@ -619,10 +619,10 @@
   626 |  1     qs.s    185 | Code        | 11 |         |    2 | 00/840C : A9 20       |             lda       #>{$2000}         
   627 |  1     qs.s    185 | Code        | 11 |         |    3 | 00/840E : 8D 04 84    |             sta       ozunid_67+1       
   628 |  1     qs.s    185 | Empty       | 11 |         |    0 | 00/8411               |                                         
-  629 |  1     qs.s    185 | Code        | 11 |         |    3 | 00/8411 : AD 53 87    |             lda       right             ; index x 2 (2 bytes per element)
+  629 |  1     qs.s    185 | Code        | 11 |         |    3 | 00/8411 : AD 52 87    |             lda       right             ; index x 2 (2 bytes per element)
   630 |  1     qs.s    185 | Code        | 11 |         |    1 | 00/8414 : 0A          |             asl                         ; stored in stmp
   631 |  1     qs.s    185 | Code        | 11 |         |    3 | 00/8415 : 8D 05 84    |             sta       ozunid_68         
-  632 |  1     qs.s    185 | Code        | 11 |         |    3 | 00/8418 : AD 54 87    |             lda       right+1           
+  632 |  1     qs.s    185 | Code        | 11 |         |    3 | 00/8418 : AD 53 87    |             lda       right+1           
   633 |  1     qs.s    185 | Code        | 11 |         |    1 | 00/841B : 2A          |             rol                         
   634 |  1     qs.s    185 | Code        | 11 |         |    3 | 00/841C : 8D 06 84    |             sta       ozunid_68+1       
   635 |  1     qs.s    185 | Code        | 11 |         |    3 | 00/841F : AD 03 84    |             lda       ozunid_67         ; soffset = array addr. + index x 2
@@ -639,12 +639,12 @@
   647 |  1     qs.s    185 | Code        | 11 |         |    2 | 00/843A : E0 02       |             cpx       #2                
   648 |  1     qs.s    185 | Code        | 11 |         |    2 | 00/843C : D0 F6       |             bne       ozunid_70         
   649 |  1     qs.s    185 | Code        | 11 |         |    2 | 00/843E : A0 00       |             ldy       #$00              ; poke value in array
-  650 |  1     qs.s    185 | Code        | 11 |         |    3 | 00/8440 : AD 5B 87    |             lda       tempo             
+  650 |  1     qs.s    185 | Code        | 11 |         |    3 | 00/8440 : AD 5A 87    |             lda       tempo             
   651 |  1     qs.s    185 | Code        | 11 |         |    2 | 00/8443 : 91 08       |             sta       ({$08}),y         
   652 |  1     qs.s    185 | Code        | 11 |         |    1 | 00/8445 : C8          |             iny                         
-  653 |  1     qs.s    185 | Code        | 11 |         |    3 | 00/8446 : AD 5C 87    |             lda       tempo+1           
+  653 |  1     qs.s    185 | Code        | 11 |         |    3 | 00/8446 : AD 5B 87    |             lda       tempo+1           
   654 |  1     qs.s    185 | Code        | 11 |         |    2 | 00/8449 : 91 08       |             sta       ({$08}),y         
-  655 |  1     qs.s    186 | Code        | 11 |         |    3 | 00/844B : EE 61 87    |             inc       tempo3            
+  655 |  1     qs.s    186 | Code        | 11 |         |    3 | 00/844B : EE 60 87    |             inc       tempo3            
   656 |  1     qs.s    187 | Code        | 11 |         |    2 | 00/844E : D0 05       |             bne       next5             
   657 |  1     qs.s    188 | Code        | 11 |         |    2 | 00/8450 : A9 AE       |             lda       #"."              
   658 |  1     qs.s    189 | Code        | 11 |         |    3 | 00/8452 : 20 ED FD    |             jsr       {$FDED}           
@@ -653,23 +653,23 @@
   661 |  1     qs.s    192 | Comment     | 11 |         |    0 | 00/8455               | * _right--;
   662 |  1     qs.s    193 | Comment     | 11 |         |    0 | 00/8455               | * _left++;
   663 |  1     qs.s    194 | Macro       | 11 |         |    0 | 00/8455               |             m_dec     right             
-  664 |  1     qs.s    194 | Code        | 11 |         |    3 | 00/8455 : AD 53 87    |             lda       right             
+  664 |  1     qs.s    194 | Code        | 11 |         |    3 | 00/8455 : AD 52 87    |             lda       right             
   665 |  1     qs.s    194 | Code        | 11 |         |    2 | 00/8458 : D0 03       |             bne       ozunid_71         
-  666 |  1     qs.s    194 | Code        | 11 |         |    3 | 00/845A : CE 54 87    |             dec       right+1           
-  667 |  1     qs.s    194 | Code        | 11 |         |    3 | 00/845D : CE 53 87    | ozunid_71   dec       right             
+  666 |  1     qs.s    194 | Code        | 11 |         |    3 | 00/845A : CE 53 87    |             dec       right+1           
+  667 |  1     qs.s    194 | Code        | 11 |         |    3 | 00/845D : CE 52 87    | ozunid_71   dec       right             
   668 |  1     qs.s    195 | Macro       | 11 |         |    0 | 00/8460               |             m_inc     left              
-  669 |  1     qs.s    195 | Code        | 11 |         |    3 | 00/8460 : EE 57 87    |             inc       left              
+  669 |  1     qs.s    195 | Code        | 11 |         |    3 | 00/8460 : EE 56 87    |             inc       left              
   670 |  1     qs.s    195 | Code        | 11 |         |    2 | 00/8463 : D0 03       |             bne       ozunid_72         
-  671 |  1     qs.s    195 | Code        | 11 |         |    3 | 00/8465 : EE 58 87    |             inc       left+1            
+  671 |  1     qs.s    195 | Code        | 11 |         |    3 | 00/8465 : EE 57 87    |             inc       left+1            
   672 |  1     qs.s    195 | Empty       | 11 |         |    0 | 00/8468               | ozunid_72                               
   673 |  1     qs.s    196 | Comment     | 11 |         |    0 | 00/8468               | *
   674 |  1     qs.s    197 | Code        | 11 |         |    1 | 00/8468 : EA          | next6       nop                         ; here if !(_left <= _right)
   675 |  1     qs.s    198 | Comment     | 11 |         |    0 | 00/8469               | * } while (_right >= _left); ==> LOOP 3
   676 |  1     qs.s    199 | Macro       | 11 |         |    0 | 00/8469               |             ssupeq    right;left        ; right >= left ?
-  677 |  1     qs.s    199 | Code        | 11 |         |    3 | 00/8469 : AD 53 87    |             lda       right             
-  678 |  1     qs.s    199 | Code        | 11 |         |    3 | 00/846C : CD 57 87    |             cmp       left              
-  679 |  1     qs.s    199 | Code        | 11 |         |    3 | 00/846F : AD 54 87    |             lda       right+1           
-  680 |  1     qs.s    199 | Code        | 11 |         |    3 | 00/8472 : ED 58 87    |             sbc       left+1            
+  677 |  1     qs.s    199 | Code        | 11 |         |    3 | 00/8469 : AD 52 87    |             lda       right             
+  678 |  1     qs.s    199 | Code        | 11 |         |    3 | 00/846C : CD 56 87    |             cmp       left              
+  679 |  1     qs.s    199 | Code        | 11 |         |    3 | 00/846F : AD 53 87    |             lda       right+1           
+  680 |  1     qs.s    199 | Code        | 11 |         |    3 | 00/8472 : ED 57 87    |             sbc       left+1            
   681 |  1     qs.s    199 | Code        | 11 |         |    2 | 00/8475 : 50 02       |             bvc       ozunid_73         ; N eor V
   682 |  1     qs.s    199 | Code        | 11 |         |    2 | 00/8477 : 49 80       |             eor       #$80              
   683 |  1     qs.s    199 | Code        | 11 |         |    2 | 00/8479 : 30 03       | ozunid_73   bmi       ozunid_74         
@@ -688,11 +688,11 @@
   696 |  1     qs.s    207 | Comment     | 11 |         |    0 | 00/8488               | * stack.push(right);
   697 |  1     qs.s    208 | Comment     | 11 |         |    0 | 00/8488               | * }
   698 |  1     qs.s    209 | Macro       | 11 |         |    0 | 00/8488               |             ssup      Rright;left       ; Rrght > left ?
-  700 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/8488 : AD 51 87    |             lda       Rright            
-  701 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/848B : CD 57 87    |             cmp       left              
+  700 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/8488 : AD 50 87    |             lda       Rright            
+  701 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/848B : CD 56 87    |             cmp       left              
   702 |  1     qs.s    209 | Code        | 11 |         |    2 | 00/848E : D0 0B       |             bne       ozunid_81         
-  703 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/8490 : AD 52 87    |             lda       Rright+1          
-  704 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/8493 : CD 58 87    |             cmp       left+1            
+  703 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/8490 : AD 51 87    |             lda       Rright+1          
+  704 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/8493 : CD 57 87    |             cmp       left+1            
   705 |  1     qs.s    209 | Code        | 11 |         |    2 | 00/8496 : D0 03       |             bne       ozunid_81         
   706 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/8498 : 4C 9F 84    |             jmp       ozunid_82         
   707 |  1     qs.s    209 | Code        | 11 |         |    1 | 00/849B : 18          | ozunid_81   clc                         
@@ -700,10 +700,10 @@
   709 |  1     qs.s    209 | Code        | 11 |         |    1 | 00/849F : 38          | ozunid_82   sec                         
   710 |  1     qs.s    209 | Empty       | 11 |         |    0 | 00/84A0               | ozunid_83                               
   711 |  1     qs.s    209 | Code        | 11 |         |    2 | 00/84A0 : B0 15       |             bcs       ozunid_78         ; clear C if equals
-  712 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/84A2 : AD 51 87    |             lda       Rright            
-  713 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/84A5 : CD 57 87    |             cmp       left              
-  714 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/84A8 : AD 52 87    |             lda       Rright+1          
-  715 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/84AB : ED 58 87    |             sbc       left+1            
+  712 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/84A2 : AD 50 87    |             lda       Rright            
+  713 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/84A5 : CD 56 87    |             cmp       left              
+  714 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/84A8 : AD 51 87    |             lda       Rright+1          
+  715 |  1     qs.s    209 | Code        | 11 |         |    3 | 00/84AB : ED 57 87    |             sbc       left+1            
   716 |  1     qs.s    209 | Code        | 11 |         |    2 | 00/84AE : 50 02       |             bvc       ozunid_77         ; N eor V
   717 |  1     qs.s    209 | Code        | 11 |         |    2 | 00/84B0 : 49 80       |             eor       #$80              
   718 |  1     qs.s    209 | Code        | 11 |         |    2 | 00/84B2 : 30 03       | ozunid_77   bmi       ozunid_78         
@@ -714,44 +714,44 @@
   723 |  1     qs.s    209 | Empty       | 11 |         |    0 | 00/84BC               | ozunid_80                               
   724 |  1     qs.s    210 | Code        | 11 |         |    2 | 00/84BC : 90 28       |             bcc       next8             ; no : go next
   725 |  1     qs.s    211 | Macro       | 11 |         |    0 | 00/84BE               |             m_inc     scount            ; inc stack counter
-  726 |  1     qs.s    211 | Code        | 11 |         |    3 | 00/84BE : EE 4D 87    |             inc       scount            
+  726 |  1     qs.s    211 | Code        | 11 |         |    3 | 00/84BE : EE 4C 87    |             inc       scount            
   727 |  1     qs.s    211 | Code        | 11 |         |    2 | 00/84C1 : D0 03       |             bne       ozunid_84         
-  728 |  1     qs.s    211 | Code        | 11 |         |    3 | 00/84C3 : EE 4E 87    |             inc       scount+1          
+  728 |  1     qs.s    211 | Code        | 11 |         |    3 | 00/84C3 : EE 4D 87    |             inc       scount+1          
   729 |  1     qs.s    211 | Empty       | 11 |         |    0 | 00/84C6               | ozunid_84                               
   730 |  1     qs.s    212 | Macro       | 11 |         |    0 | 00/84C6               |             movshort  left;tempo;2      
   731 |  1     qs.s    212 | Code        | 11 |         |    2 | 00/84C6 : A2 00       |             ldx       #$00              
-  732 |  1     qs.s    212 | Code        | 11 |         |    3 | 00/84C8 : BD 57 87    | ozunid_85   lda       left,x            
-  733 |  1     qs.s    212 | Code        | 11 |         |    3 | 00/84CB : 9D 5B 87    |             sta       tempo,x           
+  732 |  1     qs.s    212 | Code        | 11 |         |    3 | 00/84C8 : BD 56 87    | ozunid_85   lda       left,x            
+  733 |  1     qs.s    212 | Code        | 11 |         |    3 | 00/84CB : 9D 5A 87    |             sta       tempo,x           
   734 |  1     qs.s    212 | Code        | 11 |         |    1 | 00/84CE : E8          |             inx                         
   735 |  1     qs.s    212 | Code        | 11 |         |    2 | 00/84CF : E0 02       |             cpx       #2                
   736 |  1     qs.s    212 | Code        | 11 |         |    2 | 00/84D1 : D0 F5       |             bne       ozunid_85         
-  737 |  1     qs.s    213 | Code        | 11 |         |    3 | 00/84D3 : 20 63 87    |             jsr       push              
+  737 |  1     qs.s    213 | Code        | 11 |         |    3 | 00/84D3 : 20 62 87    |             jsr       push              
   738 |  1     qs.s    214 | Macro       | 11 |         |    0 | 00/84D6               |             movshort  Rright;tempo;2    
   739 |  1     qs.s    214 | Code        | 11 |         |    2 | 00/84D6 : A2 00       |             ldx       #$00              
-  740 |  1     qs.s    214 | Code        | 11 |         |    3 | 00/84D8 : BD 51 87    | ozunid_86   lda       Rright,x          
-  741 |  1     qs.s    214 | Code        | 11 |         |    3 | 00/84DB : 9D 5B 87    |             sta       tempo,x           
+  740 |  1     qs.s    214 | Code        | 11 |         |    3 | 00/84D8 : BD 50 87    | ozunid_86   lda       Rright,x          
+  741 |  1     qs.s    214 | Code        | 11 |         |    3 | 00/84DB : 9D 5A 87    |             sta       tempo,x           
   742 |  1     qs.s    214 | Code        | 11 |         |    1 | 00/84DE : E8          |             inx                         
   743 |  1     qs.s    214 | Code        | 11 |         |    2 | 00/84DF : E0 02       |             cpx       #2                
   744 |  1     qs.s    214 | Code        | 11 |         |    2 | 00/84E1 : D0 F5       |             bne       ozunid_86         
-  745 |  1     qs.s    215 | Code        | 11 |         |    3 | 00/84E3 : 20 63 87    |             jsr       push              
+  745 |  1     qs.s    215 | Code        | 11 |         |    3 | 00/84E3 : 20 62 87    |             jsr       push              
   746 |  1     qs.s    216 | Comment     | 11 |         |    0 | 00/84E6               | *
   747 |  1     qs.s    217 | Empty       | 11 |         |    0 | 00/84E6               | next8                                   
   748 |  1     qs.s    218 | Comment     | 11 |         |    0 | 00/84E6               | * right = _right;
   749 |  1     qs.s    219 | Macro       | 11 |         |    0 | 00/84E6               |             movshort  right;Rright;2    
   750 |  1     qs.s    219 | Code        | 11 |         |    2 | 00/84E6 : A2 00       |             ldx       #$00              
-  751 |  1     qs.s    219 | Code        | 11 |         |    3 | 00/84E8 : BD 53 87    | ozunid_87   lda       right,x           
-  752 |  1     qs.s    219 | Code        | 11 |         |    3 | 00/84EB : 9D 51 87    |             sta       Rright,x          
+  751 |  1     qs.s    219 | Code        | 11 |         |    3 | 00/84E8 : BD 52 87    | ozunid_87   lda       right,x           
+  752 |  1     qs.s    219 | Code        | 11 |         |    3 | 00/84EB : 9D 50 87    |             sta       Rright,x          
   753 |  1     qs.s    219 | Code        | 11 |         |    1 | 00/84EE : E8          |             inx                         
   754 |  1     qs.s    219 | Code        | 11 |         |    2 | 00/84EF : E0 02       |             cpx       #2                
   755 |  1     qs.s    219 | Code        | 11 |         |    2 | 00/84F1 : D0 F5       |             bne       ozunid_87         
   756 |  1     qs.s    220 | Empty       | 11 |         |    0 | 00/84F3               |                                         
   757 |  1     qs.s    221 | Comment     | 11 |         |    0 | 00/84F3               | * } while (left < right); // ==> LOOP 2
   758 |  1     qs.s    222 | Macro       | 11 |         |    0 | 00/84F3               |             ssup      Rright;Lleft      ; Rrght > left ?
-  760 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/84F3 : AD 51 87    |             lda       Rright            
-  761 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/84F6 : CD 55 87    |             cmp       Lleft             
+  760 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/84F3 : AD 50 87    |             lda       Rright            
+  761 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/84F6 : CD 54 87    |             cmp       Lleft             
   762 |  1     qs.s    222 | Code        | 11 |         |    2 | 00/84F9 : D0 0B       |             bne       ozunid_92         
-  763 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/84FB : AD 52 87    |             lda       Rright+1          
-  764 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/84FE : CD 56 87    |             cmp       Lleft+1           
+  763 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/84FB : AD 51 87    |             lda       Rright+1          
+  764 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/84FE : CD 55 87    |             cmp       Lleft+1           
   765 |  1     qs.s    222 | Code        | 11 |         |    2 | 00/8501 : D0 03       |             bne       ozunid_92         
   766 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/8503 : 4C 0A 85    |             jmp       ozunid_93         
   767 |  1     qs.s    222 | Code        | 11 |         |    1 | 00/8506 : 18          | ozunid_92   clc                         
@@ -759,10 +759,10 @@
   769 |  1     qs.s    222 | Code        | 11 |         |    1 | 00/850A : 38          | ozunid_93   sec                         
   770 |  1     qs.s    222 | Empty       | 11 |         |    0 | 00/850B               | ozunid_94                               
   771 |  1     qs.s    222 | Code        | 11 |         |    2 | 00/850B : B0 15       |             bcs       ozunid_89         ; clear C if equals
-  772 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/850D : AD 51 87    |             lda       Rright            
-  773 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/8510 : CD 55 87    |             cmp       Lleft             
-  774 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/8513 : AD 52 87    |             lda       Rright+1          
-  775 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/8516 : ED 56 87    |             sbc       Lleft+1           
+  772 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/850D : AD 50 87    |             lda       Rright            
+  773 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/8510 : CD 54 87    |             cmp       Lleft             
+  774 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/8513 : AD 51 87    |             lda       Rright+1          
+  775 |  1     qs.s    222 | Code        | 11 |         |    3 | 00/8516 : ED 55 87    |             sbc       Lleft+1           
   776 |  1     qs.s    222 | Code        | 11 |         |    2 | 00/8519 : 50 02       |             bvc       ozunid_88         ; N eor V
   777 |  1     qs.s    222 | Code        | 11 |         |    2 | 00/851B : 49 80       |             eor       #$80              
   778 |  1     qs.s    222 | Code        | 11 |         |    2 | 00/851D : 30 03       | ozunid_88   bmi       ozunid_89         
@@ -777,14 +777,14 @@
   787 |  1     qs.s    226 | Empty       | 11 |         |    0 | 00/852C               | next9                                   
   788 |  1     qs.s    227 | Comment     | 11 |         |    0 | 00/852C               | * } while (scount > -1);  // ==>  LOOP 1
   789 |  1     qs.s    228 | Code        | 11 |         |    2 | 00/852C : A9 FF       |             lda       #$FF              
-  790 |  1     qs.s    229 | Code        | 11 |         |    3 | 00/852E : 8D 5B 87    |             sta       tempo             
-  791 |  1     qs.s    230 | Code        | 11 |         |    3 | 00/8531 : 8D 5C 87    |             sta       tempo+1           
+  790 |  1     qs.s    229 | Code        | 11 |         |    3 | 00/852E : 8D 5A 87    |             sta       tempo             
+  791 |  1     qs.s    230 | Code        | 11 |         |    3 | 00/8531 : 8D 5B 87    |             sta       tempo+1           
   792 |  1     qs.s    231 | Macro       | 11 |         |    0 | 00/8534               |             ssup      scount;tempo      
-  794 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/8534 : AD 4D 87    |             lda       scount            
-  795 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/8537 : CD 5B 87    |             cmp       tempo             
+  794 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/8534 : AD 4C 87    |             lda       scount            
+  795 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/8537 : CD 5A 87    |             cmp       tempo             
   796 |  1     qs.s    231 | Code        | 11 |         |    2 | 00/853A : D0 0B       |             bne       ozunid_99         
-  797 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/853C : AD 4E 87    |             lda       scount+1          
-  798 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/853F : CD 5C 87    |             cmp       tempo+1           
+  797 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/853C : AD 4D 87    |             lda       scount+1          
+  798 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/853F : CD 5B 87    |             cmp       tempo+1           
   799 |  1     qs.s    231 | Code        | 11 |         |    2 | 00/8542 : D0 03       |             bne       ozunid_99         
   800 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/8544 : 4C 4B 85    |             jmp       ozunid_100        
   801 |  1     qs.s    231 | Code        | 11 |         |    1 | 00/8547 : 18          | ozunid_99   clc                         
@@ -792,10 +792,10 @@
   803 |  1     qs.s    231 | Code        | 11 |         |    1 | 00/854B : 38          | ozunid_100  sec                         
   804 |  1     qs.s    231 | Empty       | 11 |         |    0 | 00/854C               | ozunid_101                              
   805 |  1     qs.s    231 | Code        | 11 |         |    2 | 00/854C : B0 15       |             bcs       ozunid_96         ; clear C if equals
-  806 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/854E : AD 4D 87    |             lda       scount            
-  807 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/8551 : CD 5B 87    |             cmp       tempo             
-  808 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/8554 : AD 4E 87    |             lda       scount+1          
-  809 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/8557 : ED 5C 87    |             sbc       tempo+1           
+  806 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/854E : AD 4C 87    |             lda       scount            
+  807 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/8551 : CD 5A 87    |             cmp       tempo             
+  808 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/8554 : AD 4D 87    |             lda       scount+1          
+  809 |  1     qs.s    231 | Code        | 11 |         |    3 | 00/8557 : ED 5B 87    |             sbc       tempo+1           
   810 |  1     qs.s    231 | Code        | 11 |         |    2 | 00/855A : 50 02       |             bvc       ozunid_95         ; N eor V
   811 |  1     qs.s    231 | Code        | 11 |         |    2 | 00/855C : 49 80       |             eor       #$80              
   812 |  1     qs.s    231 | Code        | 11 |         |    2 | 00/855E : 30 03       | ozunid_95   bmi       ozunid_96         
@@ -811,26 +811,26 @@
   822 |  1     qs.s    235 | Code        | 11 |         |    2 | 00/856D : A9 8D       |             lda       #$8D              
   823 |  1     qs.s    235 | Code        | 11 |         |    3 | 00/856F : 20 ED FD    |             jsr       {$FDED}           
   824 |  1     qs.s    236 | Macro       | 11 |         |    0 | 00/8572               |             prnstr    scheck            
-  825 |  1     qs.s    236 | Code        | 11 |         |    3 | 00/8572 : AC 2B 87    |             ldy       scheck            
+  825 |  1     qs.s    236 | Code        | 11 |         |    3 | 00/8572 : AC 2A 87    |             ldy       scheck            
   826 |  1     qs.s    236 | Code        | 11 |         |    2 | 00/8575 : F0 0E       |             beq       ozunid_103        ; no char.
   827 |  1     qs.s    236 | Code        | 11 |         |    2 | 00/8577 : A2 00       |             ldx       #$00              
-  828 |  1     qs.s    236 | Code        | 11 |         |    3 | 00/8579 : BD 2C 87    | ozunid_102  lda       scheck+1,x        
+  828 |  1     qs.s    236 | Code        | 11 |         |    3 | 00/8579 : BD 2B 87    | ozunid_102  lda       scheck+1,x        
   829 |  1     qs.s    236 | Code        | 11 |         |    2 | 00/857C : 09 80       |             ora       #$80              
   830 |  1     qs.s    236 | Code        | 11 |         |    3 | 00/857E : 20 ED FD    |             jsr       {$FDED}           
   831 |  1     qs.s    236 | Code        | 11 |         |    1 | 00/8581 : E8          |             inx                         
   832 |  1     qs.s    236 | Code        | 11 |         |    1 | 00/8582 : 88          |             dey                         
   833 |  1     qs.s    236 | Code        | 11 |         |    2 | 00/8583 : D0 F4       |             bne       ozunid_102        
   834 |  1     qs.s    236 | Empty       | 11 |         |    0 | 00/8585               | ozunid_103                              
-  835 |  1     qs.s    237 | Code        | 11 |         |    3 | 00/8585 : 20 8A 89    |             jsr       check             
+  835 |  1     qs.s    237 | Code        | 11 |         |    3 | 00/8585 : 20 89 89    |             jsr       check             
   836 |  1     qs.s    238 | Code        | 11 |         |    2 | 00/8588 : 90 2F       |             bcc       endprog           
   837 |  1     qs.s    239 | Macro       | 11 |         |    0 | 00/858A               | doerr       cr                          
   838 |  1     qs.s    239 | Code        | 11 |         |    2 | 00/858A : A9 8D       |             lda       #$8D              
   839 |  1     qs.s    239 | Code        | 11 |         |    3 | 00/858C : 20 ED FD    |             jsr       {$FDED}           
   840 |  1     qs.s    240 | Macro       | 11 |         |    0 | 00/858F               |             prnstr    serror            
-  841 |  1     qs.s    240 | Code        | 11 |         |    3 | 00/858F : AC 37 87    |             ldy       serror            
+  841 |  1     qs.s    240 | Code        | 11 |         |    3 | 00/858F : AC 36 87    |             ldy       serror            
   842 |  1     qs.s    240 | Code        | 11 |         |    2 | 00/8592 : F0 0E       |             beq       ozunid_105        ; no char.
   843 |  1     qs.s    240 | Code        | 11 |         |    2 | 00/8594 : A2 00       |             ldx       #$00              
-  844 |  1     qs.s    240 | Code        | 11 |         |    3 | 00/8596 : BD 38 87    | ozunid_104  lda       serror+1,x        
+  844 |  1     qs.s    240 | Code        | 11 |         |    3 | 00/8596 : BD 37 87    | ozunid_104  lda       serror+1,x        
   845 |  1     qs.s    240 | Code        | 11 |         |    2 | 00/8599 : 09 80       |             ora       #$80              
   846 |  1     qs.s    240 | Code        | 11 |         |    3 | 00/859B : 20 ED FD    |             jsr       {$FDED}           
   847 |  1     qs.s    240 | Code        | 11 |         |    1 | 00/859E : E8          |             inx                         
@@ -850,10 +850,10 @@
   861 |  1     qs.s    243 | Code        | 11 |         |    3 | 00/85B6 : 4C D1 85    |             jmp       outprg            
   862 |  1     qs.s    244 | Empty       | 11 |         |    0 | 00/85B9               |                                         
   863 |  1     qs.s    245 | Macro       | 11 |         |    0 | 00/85B9               | endprog     prnstr    snoerr            
-  864 |  1     qs.s    245 | Code        | 11 |         |    3 | 00/85B9 : AC 43 87    |             ldy       snoerr            
+  864 |  1     qs.s    245 | Code        | 11 |         |    3 | 00/85B9 : AC 42 87    |             ldy       snoerr            
   865 |  1     qs.s    245 | Code        | 11 |         |    2 | 00/85BC : F0 0E       |             beq       ozunid_107        ; no char.
   866 |  1     qs.s    245 | Code        | 11 |         |    2 | 00/85BE : A2 00       |             ldx       #$00              
-  867 |  1     qs.s    245 | Code        | 11 |         |    3 | 00/85C0 : BD 44 87    | ozunid_106  lda       snoerr+1,x        
+  867 |  1     qs.s    245 | Code        | 11 |         |    3 | 00/85C0 : BD 43 87    | ozunid_106  lda       snoerr+1,x        
   868 |  1     qs.s    245 | Code        | 11 |         |    2 | 00/85C3 : 09 80       |             ora       #$80              
   869 |  1     qs.s    245 | Code        | 11 |         |    3 | 00/85C5 : 20 ED FD    |             jsr       {$FDED}           
   870 |  1     qs.s    245 | Code        | 11 |         |    1 | 00/85C8 : E8          |             inx                         
@@ -943,7 +943,7 @@
       |                    |             |    |         |      |           E5 E4 A0 E1 |
       |                    |             |    |         |      |           F4 A0 A4 B2 |
       |                    |             |    |         |      |           B0 B0 B0    |
-  936 |  1     qs.s    265 | Data        | 11 |         |   43 | 00/868F : 2A C1 A0 D4 | strib       str       "A Tribute to Charles Antony Richard Hoare,"
+  936 |  1     qs.s    265 | Data        | 11 |         |   43 | 00/868F : 2A C1 A0 D4 | strib       str       "A Tribute to Charles Antony Richard Hoare "
       |                    |             |    |         |      |           F2 E9 E2 F5 |
       |                    |             |    |         |      |           F4 E5 A0 F4 |
       |                    |             |    |         |      |           EF A0 C3 E8 |
@@ -953,8 +953,8 @@
       |                    |             |    |         |      |           A0 D2 E9 E3 |
       |                    |             |    |         |      |           E8 E1 F2 E4 |
       |                    |             |    |         |      |           A0 C8 EF E1 |
-      |                    |             |    |         |      |           F2 E5 AC    |
-  937 |  1     qs.s    266 | Data        | 11 |         |   43 | 00/86BA : 2A F7 E8 EF | strib2      str       "who invented QuickSort algorithm in 1961 !"
+      |                    |             |    |         |      |           F2 E5 A0    |
+  937 |  1     qs.s    266 | Data        | 11 |         |   42 | 00/86BA : 29 F7 E8 EF | strib2      str       "who invented QuickSort algorithm in 1961!"
       |                    |             |    |         |      |           A0 E9 EE F6 |
       |                    |             |    |         |      |           E5 EE F4 E5 |
       |                    |             |    |         |      |           E4 A0 D1 F5 |
@@ -964,8 +964,8 @@
       |                    |             |    |         |      |           F2 E9 F4 E8 |
       |                    |             |    |         |      |           ED A0 E9 EE |
       |                    |             |    |         |      |           A0 B1 B9 B6 |
-      |                    |             |    |         |      |           B1 A0 A1    |
-  938 |  1     qs.s    267 | Data        | 11 |         |   59 | 00/86E5 : 3A C7 E5 EE | sgene       str       "Generating 4096 pseudo random 16 bits unsigned integers..."
+      |                    |             |    |         |      |           B1 A1       |
+  938 |  1     qs.s    267 | Data        | 11 |         |   59 | 00/86E4 : 3A C7 E5 EE | sgene       str       "Generating 4096 pseudo random 16 bits unsigned integers..."
       |                    |             |    |         |      |           E5 F2 E1 F4 |
       |                    |             |    |         |      |           E9 EE E7 A0 |
       |                    |             |    |         |      |           B4 B0 B9 B6 |
@@ -980,396 +980,396 @@
       |                    |             |    |         |      |           E9 EE F4 E5 |
       |                    |             |    |         |      |           E7 E5 F2 F3 |
       |                    |             |    |         |      |           AE AE AE    |
-  939 |  1     qs.s    268 | Data        | 11 |         |   11 | 00/8720 : 0A D3 EF F2 | ssorting    str       "Sorting..."      
+  939 |  1     qs.s    268 | Data        | 11 |         |   11 | 00/871F : 0A D3 EF F2 | ssorting    str       "Sorting..."      
       |                    |             |    |         |      |           F4 E9 EE E7 |
       |                    |             |    |         |      |           AE AE AE    |
-  940 |  1     qs.s    269 | Data        | 11 |         |   12 | 00/872B : 0B C3 E8 E5 | scheck      str       "Checking..."     
+  940 |  1     qs.s    269 | Data        | 11 |         |   12 | 00/872A : 0B C3 E8 E5 | scheck      str       "Checking..."     
       |                    |             |    |         |      |           E3 EB E9 EE |
       |                    |             |    |         |      |           E7 AE AE AE |
-  941 |  1     qs.s    270 | Data        | 11 |         |   12 | 00/8737 : 0B C5 F2 F2 | serror      str       "Error at : "     
+  941 |  1     qs.s    270 | Data        | 11 |         |   12 | 00/8736 : 0B C5 F2 F2 | serror      str       "Error at : "     
       |                    |             |    |         |      |           EF F2 A0 E1 |
       |                    |             |    |         |      |           F4 A0 BA A0 |
-  942 |  1     qs.s    271 | Data        | 11 |         |   10 | 00/8743 : 09 EE EF A0 | snoerr      str       "no error."       
+  942 |  1     qs.s    271 | Data        | 11 |         |   10 | 00/8742 : 09 EE EF A0 | snoerr      str       "no error."       
       |                    |             |    |         |      |           E5 F2 F2 EF |
       |                    |             |    |         |      |           F2 AE       |
-  943 |  1     qs.s    272 | Empty       | 11 |         |    0 | 00/874D               |                                         
-  944 |  1     qs.s    273 | Data        | 11 |         |    2 | 00/874D : 00 00       | scount      hex       0000              
-  945 |  1     qs.s    274 | Data        | 11 |         |    2 | 00/874F : 00 10       | dnb         hex       0010              ; quantity of integers
-  946 |  1     qs.s    275 | Comment     | 11 |         |    0 | 00/8751               | *
-  947 |  1     qs.s    276 | Data        | 11 |         |    2 | 00/8751 : 00 00       | Rright      hex       0000              
-  948 |  1     qs.s    277 | Data        | 11 |         |    2 | 00/8753 : 00 00       | right       hex       0000              
-  949 |  1     qs.s    278 | Data        | 11 |         |    2 | 00/8755 : 00 00       | Lleft       hex       0000              
-  950 |  1     qs.s    279 | Data        | 11 |         |    2 | 00/8757 : 00 00       | left        hex       0000              
-  951 |  1     qs.s    280 | Data        | 11 |         |    2 | 00/8759 : 00 00       | pivot       hex       0000              
-  952 |  1     qs.s    281 | Comment     | 11 |         |    0 | 00/875B               | *
-  953 |  1     qs.s    282 | Data        | 11 |         |    2 | 00/875B : 00 00       | tempo       hex       0000              
-  954 |  1     qs.s    283 | Data        | 11 |         |    2 | 00/875D : 00 00       | tempo1      hex       0000              
-  955 |  1     qs.s    284 | Data        | 11 |         |    2 | 00/875F : 00 00       | tempo2      hex       0000              
-  956 |  1     qs.s    285 | Data        | 11 |         |    2 | 00/8761 : 00 00       | tempo3      hex       0000              
-  957 |  1     qs.s    286 | Comment     | 11 |         |    0 | 00/8763               | *
-  958 |  1     qs.s    287 | Comment     | 11 |         |    0 | 00/8763               | *
-  959 |  1     qs.s    288 | Comment     | 11 |         |    0 | 00/8763               | * STACK routines
-  960 |  1     qs.s    289 | Comment     | 11 |         |    0 | 00/8763               | *
-  961 |  1     qs.s    290 | Comment     | 11 |         |    0 | 00/8763               | * Stack : push a 16 bits value on stack
-  962 |  1     qs.s    291 | Comment     | 11 |         |    0 | 00/8763               | * tempo = pointer to vlue to push
-  963 |  1     qs.s    292 | Code        | 11 |         |    1 | 00/8763 : EA          | push        nop                         
-  964 |  1     qs.s    293 | Code        | 11 |         |    2 | 00/8764 : A0 00       |             ldy       #$00              
-  965 |  1     qs.s    294 | Code        | 11 |         |    3 | 00/8766 : AD 5B 87    |             lda       tempo             ; get value from tempo (lo)
-  966 |  1     qs.s    295 | Code        | 11 |         |    2 | 00/8769 : 91 06       |             sta       ({$06}),y         ; drop on stack
-  967 |  1     qs.s    296 | Code        | 11 |         |    1 | 00/876B : C8          |             iny                         
-  968 |  1     qs.s    297 | Code        | 11 |         |    3 | 00/876C : AD 5C 87    |             lda       tempo+1           ; get value from tempo (hi)
-  969 |  1     qs.s    298 | Code        | 11 |         |    2 | 00/876F : 91 06       |             sta       ({$06}),y         ; drop on stack
-  970 |  1     qs.s    299 | Code        | 11 |         |    2 | 00/8771 : A5 06       |             lda       {$06}             ; sptr = sptr + 2 (to point to next free memory)
-  971 |  1     qs.s    300 | Code        | 11 |         |    1 | 00/8773 : 18          |             clc                         
-  972 |  1     qs.s    301 | Code        | 11 |         |    2 | 00/8774 : 69 02       |             adc       #$02              
-  973 |  1     qs.s    302 | Code        | 11 |         |    2 | 00/8776 : 85 06       |             sta       {$06}             
-  974 |  1     qs.s    303 | Code        | 11 |         |    2 | 00/8778 : A5 07       |             lda       {$06}+1           
-  975 |  1     qs.s    304 | Code        | 11 |         |    2 | 00/877A : 69 00       |             adc       #$00              
-  976 |  1     qs.s    305 | Code        | 11 |         |    2 | 00/877C : 85 07       |             sta       {$06}+1           
-  977 |  1     qs.s    306 | Code        | 11 |         |    1 | 00/877E : 60          | epush       rts                         
-  978 |  1     qs.s    307 | Comment     | 11 |         |    0 | 00/877F               | *
-  979 |  1     qs.s    308 | Comment     | 11 |         |    0 | 00/877F               | * Stack : pop a 16 bits value from stack 
-  980 |  1     qs.s    309 | Code        | 11 |         |    1 | 00/877F : EA          | pop         nop                         ; pop a 16 bits value from stack
-  981 |  1     qs.s    310 | Code        | 11 |         |    2 | 00/8780 : A5 06       |             lda       {$06}             ; set sptr to sptr-2
-  982 |  1     qs.s    311 | Code        | 11 |         |    1 | 00/8782 : 38          |             sec                         
-  983 |  1     qs.s    312 | Code        | 11 |         |    2 | 00/8783 : E9 02       |             sbc       #$02              
-  984 |  1     qs.s    313 | Code        | 11 |         |    2 | 00/8785 : 85 06       |             sta       {$06}             
-  985 |  1     qs.s    314 | Code        | 11 |         |    2 | 00/8787 : A5 07       |             lda       {$06}+1           
-  986 |  1     qs.s    315 | Code        | 11 |         |    2 | 00/8789 : E9 00       |             sbc       #$00              
-  987 |  1     qs.s    316 | Code        | 11 |         |    2 | 00/878B : 85 07       |             sta       {$06}+1           
-  988 |  1     qs.s    317 | Code        | 11 |         |    2 | 00/878D : A0 00       |             ldy       #$00              ; get value
-  989 |  1     qs.s    318 | Code        | 11 |         |    2 | 00/878F : B1 06       |             lda       ({$06}),y         
-  990 |  1     qs.s    319 | Code        | 11 |         |    3 | 00/8791 : 8D 5B 87    |             sta       tempo             ; to tempo
-  991 |  1     qs.s    320 | Code        | 11 |         |    1 | 00/8794 : C8          |             iny                         
-  992 |  1     qs.s    321 | Code        | 11 |         |    2 | 00/8795 : B1 06       |             lda       ({$06}),y         
-  993 |  1     qs.s    322 | Code        | 11 |         |    3 | 00/8797 : 8D 5C 87    |             sta       tempo+1           
-  994 |  1     qs.s    323 | Code        | 11 |         |    1 | 00/879A : 60          | nodec       rts                         
-  995 |  1     qs.s    324 | Empty       | 11 |         |    0 | 00/879B               |                                         
-  996 |  1     qs.s    325 | Comment     | 11 |         |    0 | 00/879B               | * 
-  997 |  1     qs.s    326 | Comment     | 11 |         |    0 | 00/879B               | * Random number generator
-  998 |  1     qs.s    327 | Comment     | 11 |         |    0 | 00/879B               | *     
-  999 |  1     qs.s    328 | Data        | 11 |         |    1 | 00/879B : 00          | R1          hex       00                
- 1000 |  1     qs.s    329 | Data        | 11 |         |    1 | 00/879C : 00          | R2          hex       00                
- 1001 |  1     qs.s    330 | Data        | 11 |         |    1 | 00/879D : 00          | R3          hex       00                
- 1002 |  1     qs.s    331 | Data        | 11 |         |    1 | 00/879E : 00          | R4          hex       00                
- 1003 |  1     qs.s    332 | Comment     | 11 |         |    0 | 00/879F               | *
- 1004 |  1     qs.s    333 | Code        | 11 |         |    3 | 00/879F : 6E 9E 87    | random      ror       R4                ; Bit 25 to carry
- 1005 |  1     qs.s    334 | Code        | 11 |         |    3 | 00/87A2 : AD 9D 87    |             lda       R3                ; Shift left 8 bits
- 1006 |  1     qs.s    335 | Code        | 11 |         |    3 | 00/87A5 : 8D 9E 87    |             sta       R4                
- 1007 |  1     qs.s    336 | Code        | 11 |         |    3 | 00/87A8 : AD 9C 87    |             lda       R2                
- 1008 |  1     qs.s    337 | Code        | 11 |         |    3 | 00/87AB : 8D 9D 87    |             sta       R3                
- 1009 |  1     qs.s    338 | Code        | 11 |         |    3 | 00/87AE : AD 9B 87    |             lda       R1                
- 1010 |  1     qs.s    339 | Code        | 11 |         |    3 | 00/87B1 : 8D 9C 87    |             sta       R2                
- 1011 |  1     qs.s    340 | Code        | 11 |         |    3 | 00/87B4 : AD 9E 87    |             lda       R4                ; Get original bits 17-24
- 1012 |  1     qs.s    341 | Code        | 11 |         |    1 | 00/87B7 : 6A          |             ror                         ; Now bits 18-25 in ACC
- 1013 |  1     qs.s    342 | Code        | 11 |         |    3 | 00/87B8 : 2E 9B 87    |             rol       R1                ; R1 holds bits 1-7
- 1014 |  1     qs.s    343 | Code        | 11 |         |    3 | 00/87BB : 4D 9B 87    |             EOR       R1                ; Seven bits at once
- 1015 |  1     qs.s    344 | Code        | 11 |         |    3 | 00/87BE : 6E 9E 87    |             ror       R4                ; Shift right by one bit
- 1016 |  1     qs.s    345 | Code        | 11 |         |    3 | 00/87C1 : 6E 9D 87    |             ror       R3                
- 1017 |  1     qs.s    346 | Code        | 11 |         |    3 | 00/87C4 : 6E 9C 87    |             ror       R2                
- 1018 |  1     qs.s    347 | Code        | 11 |         |    1 | 00/87C7 : 6A          |             ror                         
- 1019 |  1     qs.s    348 | Code        | 11 |         |    3 | 00/87C8 : 8D 9B 87    |             sta       R1                
- 1020 |  1     qs.s    349 | Code        | 11 |         |    1 | 00/87CB : 60          |             rts                         
- 1021 |  1     qs.s    350 | Comment     | 11 |         |    0 | 00/87CC               | *
- 1022 |  1     qs.s    351 | Comment     | 11 |         |    0 | 00/87CC               | * Routine to seed the random number generator with a
- 1023 |  1     qs.s    352 | Comment     | 11 |         |    0 | 00/87CC               | * reasonable initial value:
- 1024 |  1     qs.s    353 | Comment     | 11 |         |    0 | 00/87CC               | *
- 1025 |  1     qs.s    354 | Code        | 11 |         |    2 | 00/87CC : A5 4E       | initrandom  lda       $4E               ; Seed the random number generator
- 1026 |  1     qs.s    355 | Code        | 11 |         |    3 | 00/87CE : 8D 9B 87    |             sta       R1                ; based on delay between keypresses
- 1027 |  1     qs.s    356 | Code        | 11 |         |    3 | 00/87D1 : 8D 9D 87    |             sta       R3                
- 1028 |  1     qs.s    357 | Code        | 11 |         |    2 | 00/87D4 : A5 4F       |             lda       $4F               
- 1029 |  1     qs.s    358 | Code        | 11 |         |    3 | 00/87D6 : 8D 9C 87    |             sta       R2                
- 1030 |  1     qs.s    359 | Code        | 11 |         |    3 | 00/87D9 : 8D 9E 87    |             sta       R4                
- 1031 |  1     qs.s    360 | Code        | 11 |         |    1 | 00/87DC : 60          |             rts                         
- 1032 |  1     qs.s    361 | Empty       | 11 |         |    0 | 00/87DD               |                                         
- 1033 |  1     qs.s    362 | Comment     | 11 |         |    0 | 00/87DD               | *
- 1034 |  1     qs.s    363 | Comment     | 11 |         |    0 | 00/87DD               | * DEBUG routines
- 1035 |  1     qs.s    364 | Comment     | 11 |         |    0 | 00/87DD               | * print vars
- 1036 |  1     qs.s    365 | Empty       | 11 |         |    0 | 00/87DD               | dbg                                     
- 1037 |  1     qs.s    366 | Code        | 11 |         |    3 | 00/87DD : 20 0E 89    |             jsr       debug             
- 1038 |  1     qs.s    367 | Macro       | 11 |         |    0 | 00/87E0               |             cr                          
- 1039 |  1     qs.s    367 | Code        | 11 |         |    2 | 00/87E0 : A9 8D       |             lda       #$8D              
- 1040 |  1     qs.s    367 | Code        | 11 |         |    3 | 00/87E2 : 20 ED FD    |             jsr       {$FDED}           
- 1041 |  1     qs.s    368 | Macro       | 11 |         |    0 | 00/87E5               |             prnstr    sLL               
- 1042 |  1     qs.s    368 | Code        | 11 |         |    3 | 00/87E5 : AC 52 86    |             ldy       sLL               
- 1043 |  1     qs.s    368 | Code        | 11 |         |    2 | 00/87E8 : F0 0E       |             beq       ozunid_117        ; no char.
- 1044 |  1     qs.s    368 | Code        | 11 |         |    2 | 00/87EA : A2 00       |             ldx       #$00              
- 1045 |  1     qs.s    368 | Code        | 11 |         |    3 | 00/87EC : BD 53 86    | ozunid_116  lda       sLL+1,x           
- 1046 |  1     qs.s    368 | Code        | 11 |         |    2 | 00/87EF : 09 80       |             ora       #$80              
- 1047 |  1     qs.s    368 | Code        | 11 |         |    3 | 00/87F1 : 20 ED FD    |             jsr       {$FDED}           
- 1048 |  1     qs.s    368 | Code        | 11 |         |    1 | 00/87F4 : E8          |             inx                         
- 1049 |  1     qs.s    368 | Code        | 11 |         |    1 | 00/87F5 : 88          |             dey                         
- 1050 |  1     qs.s    368 | Code        | 11 |         |    2 | 00/87F6 : D0 F4       |             bne       ozunid_116        
- 1051 |  1     qs.s    368 | Empty       | 11 |         |    0 | 00/87F8               | ozunid_117                              
- 1052 |  1     qs.s    369 | Macro       | 11 |         |    0 | 00/87F8               |             printm    Lleft             
- 1053 |  1     qs.s    369 | Code        | 11 |         |    2 | 00/87F8 : A9 A4       |             lda       #"$"              
- 1054 |  1     qs.s    369 | Code        | 11 |         |    3 | 00/87FA : 20 ED FD    |             jsr       {$FDED}           
- 1055 |  1     qs.s    369 | Code        | 11 |         |    3 | 00/87FD : AE 56 87    |             ldx       Lleft+1           
- 1056 |  1     qs.s    369 | Code        | 11 |         |    3 | 00/8800 : 20 44 F9    |             jsr       {$F944}           
- 1057 |  1     qs.s    369 | Code        | 11 |         |    3 | 00/8803 : AE 55 87    |             ldx       Lleft             
- 1058 |  1     qs.s    369 | Code        | 11 |         |    3 | 00/8806 : 20 44 F9    |             jsr       {$F944}           
- 1059 |  1     qs.s    370 | Macro       | 11 |         |    0 | 00/8809               |             prnstr    sspace            
- 1060 |  1     qs.s    370 | Code        | 11 |         |    3 | 00/8809 : AC 5C 86    |             ldy       sspace            
- 1061 |  1     qs.s    370 | Code        | 11 |         |    2 | 00/880C : F0 0E       |             beq       ozunid_119        ; no char.
- 1062 |  1     qs.s    370 | Code        | 11 |         |    2 | 00/880E : A2 00       |             ldx       #$00              
- 1063 |  1     qs.s    370 | Code        | 11 |         |    3 | 00/8810 : BD 5D 86    | ozunid_118  lda       sspace+1,x        
- 1064 |  1     qs.s    370 | Code        | 11 |         |    2 | 00/8813 : 09 80       |             ora       #$80              
- 1065 |  1     qs.s    370 | Code        | 11 |         |    3 | 00/8815 : 20 ED FD    |             jsr       {$FDED}           
- 1066 |  1     qs.s    370 | Code        | 11 |         |    1 | 00/8818 : E8          |             inx                         
- 1067 |  1     qs.s    370 | Code        | 11 |         |    1 | 00/8819 : 88          |             dey                         
- 1068 |  1     qs.s    370 | Code        | 11 |         |    2 | 00/881A : D0 F4       |             bne       ozunid_118        
- 1069 |  1     qs.s    370 | Empty       | 11 |         |    0 | 00/881C               | ozunid_119                              
- 1070 |  1     qs.s    371 | Macro       | 11 |         |    0 | 00/881C               |             prnstr    sRR               
- 1071 |  1     qs.s    371 | Code        | 11 |         |    3 | 00/881C : AC 48 86    |             ldy       sRR               
- 1072 |  1     qs.s    371 | Code        | 11 |         |    2 | 00/881F : F0 0E       |             beq       ozunid_121        ; no char.
- 1073 |  1     qs.s    371 | Code        | 11 |         |    2 | 00/8821 : A2 00       |             ldx       #$00              
- 1074 |  1     qs.s    371 | Code        | 11 |         |    3 | 00/8823 : BD 49 86    | ozunid_120  lda       sRR+1,x           
- 1075 |  1     qs.s    371 | Code        | 11 |         |    2 | 00/8826 : 09 80       |             ora       #$80              
- 1076 |  1     qs.s    371 | Code        | 11 |         |    3 | 00/8828 : 20 ED FD    |             jsr       {$FDED}           
- 1077 |  1     qs.s    371 | Code        | 11 |         |    1 | 00/882B : E8          |             inx                         
- 1078 |  1     qs.s    371 | Code        | 11 |         |    1 | 00/882C : 88          |             dey                         
- 1079 |  1     qs.s    371 | Code        | 11 |         |    2 | 00/882D : D0 F4       |             bne       ozunid_120        
- 1080 |  1     qs.s    371 | Empty       | 11 |         |    0 | 00/882F               | ozunid_121                              
- 1081 |  1     qs.s    372 | Macro       | 11 |         |    0 | 00/882F               |             printm    Rright            
- 1082 |  1     qs.s    372 | Code        | 11 |         |    2 | 00/882F : A9 A4       |             lda       #"$"              
- 1083 |  1     qs.s    372 | Code        | 11 |         |    3 | 00/8831 : 20 ED FD    |             jsr       {$FDED}           
- 1084 |  1     qs.s    372 | Code        | 11 |         |    3 | 00/8834 : AE 52 87    |             ldx       Rright+1          
- 1085 |  1     qs.s    372 | Code        | 11 |         |    3 | 00/8837 : 20 44 F9    |             jsr       {$F944}           
- 1086 |  1     qs.s    372 | Code        | 11 |         |    3 | 00/883A : AE 51 87    |             ldx       Rright            
- 1087 |  1     qs.s    372 | Code        | 11 |         |    3 | 00/883D : 20 44 F9    |             jsr       {$F944}           
- 1088 |  1     qs.s    373 | Empty       | 11 |         |    0 | 00/8840               |                                         
- 1089 |  1     qs.s    374 | Macro       | 11 |         |    0 | 00/8840               |             cr                          
- 1090 |  1     qs.s    374 | Code        | 11 |         |    2 | 00/8840 : A9 8D       |             lda       #$8D              
- 1091 |  1     qs.s    374 | Code        | 11 |         |    3 | 00/8842 : 20 ED FD    |             jsr       {$FDED}           
- 1092 |  1     qs.s    375 | Empty       | 11 |         |    0 | 00/8845               |                                         
- 1093 |  1     qs.s    376 | Macro       | 11 |         |    0 | 00/8845               |             prnstr    sleft             
- 1094 |  1     qs.s    376 | Code        | 11 |         |    3 | 00/8845 : AC 34 86    |             ldy       sleft             
- 1095 |  1     qs.s    376 | Code        | 11 |         |    2 | 00/8848 : F0 0E       |             beq       ozunid_123        ; no char.
- 1096 |  1     qs.s    376 | Code        | 11 |         |    2 | 00/884A : A2 00       |             ldx       #$00              
- 1097 |  1     qs.s    376 | Code        | 11 |         |    3 | 00/884C : BD 35 86    | ozunid_122  lda       sleft+1,x         
- 1098 |  1     qs.s    376 | Code        | 11 |         |    2 | 00/884F : 09 80       |             ora       #$80              
- 1099 |  1     qs.s    376 | Code        | 11 |         |    3 | 00/8851 : 20 ED FD    |             jsr       {$FDED}           
- 1100 |  1     qs.s    376 | Code        | 11 |         |    1 | 00/8854 : E8          |             inx                         
- 1101 |  1     qs.s    376 | Code        | 11 |         |    1 | 00/8855 : 88          |             dey                         
- 1102 |  1     qs.s    376 | Code        | 11 |         |    2 | 00/8856 : D0 F4       |             bne       ozunid_122        
- 1103 |  1     qs.s    376 | Empty       | 11 |         |    0 | 00/8858               | ozunid_123                              
- 1104 |  1     qs.s    377 | Macro       | 11 |         |    0 | 00/8858               |             printm    left              
- 1105 |  1     qs.s    377 | Code        | 11 |         |    2 | 00/8858 : A9 A4       |             lda       #"$"              
- 1106 |  1     qs.s    377 | Code        | 11 |         |    3 | 00/885A : 20 ED FD    |             jsr       {$FDED}           
- 1107 |  1     qs.s    377 | Code        | 11 |         |    3 | 00/885D : AE 58 87    |             ldx       left+1            
- 1108 |  1     qs.s    377 | Code        | 11 |         |    3 | 00/8860 : 20 44 F9    |             jsr       {$F944}           
- 1109 |  1     qs.s    377 | Code        | 11 |         |    3 | 00/8863 : AE 57 87    |             ldx       left              
- 1110 |  1     qs.s    377 | Code        | 11 |         |    3 | 00/8866 : 20 44 F9    |             jsr       {$F944}           
- 1111 |  1     qs.s    378 | Macro       | 11 |         |    0 | 00/8869               |             prnstr    sspace            
- 1112 |  1     qs.s    378 | Code        | 11 |         |    3 | 00/8869 : AC 5C 86    |             ldy       sspace            
- 1113 |  1     qs.s    378 | Code        | 11 |         |    2 | 00/886C : F0 0E       |             beq       ozunid_125        ; no char.
- 1114 |  1     qs.s    378 | Code        | 11 |         |    2 | 00/886E : A2 00       |             ldx       #$00              
- 1115 |  1     qs.s    378 | Code        | 11 |         |    3 | 00/8870 : BD 5D 86    | ozunid_124  lda       sspace+1,x        
- 1116 |  1     qs.s    378 | Code        | 11 |         |    2 | 00/8873 : 09 80       |             ora       #$80              
- 1117 |  1     qs.s    378 | Code        | 11 |         |    3 | 00/8875 : 20 ED FD    |             jsr       {$FDED}           
- 1118 |  1     qs.s    378 | Code        | 11 |         |    1 | 00/8878 : E8          |             inx                         
- 1119 |  1     qs.s    378 | Code        | 11 |         |    1 | 00/8879 : 88          |             dey                         
- 1120 |  1     qs.s    378 | Code        | 11 |         |    2 | 00/887A : D0 F4       |             bne       ozunid_124        
- 1121 |  1     qs.s    378 | Empty       | 11 |         |    0 | 00/887C               | ozunid_125                              
- 1122 |  1     qs.s    379 | Macro       | 11 |         |    0 | 00/887C               |             prnstr    sright            
- 1123 |  1     qs.s    379 | Code        | 11 |         |    3 | 00/887C : AC 3E 86    |             ldy       sright            
- 1124 |  1     qs.s    379 | Code        | 11 |         |    2 | 00/887F : F0 0E       |             beq       ozunid_127        ; no char.
- 1125 |  1     qs.s    379 | Code        | 11 |         |    2 | 00/8881 : A2 00       |             ldx       #$00              
- 1126 |  1     qs.s    379 | Code        | 11 |         |    3 | 00/8883 : BD 3F 86    | ozunid_126  lda       sright+1,x        
- 1127 |  1     qs.s    379 | Code        | 11 |         |    2 | 00/8886 : 09 80       |             ora       #$80              
- 1128 |  1     qs.s    379 | Code        | 11 |         |    3 | 00/8888 : 20 ED FD    |             jsr       {$FDED}           
- 1129 |  1     qs.s    379 | Code        | 11 |         |    1 | 00/888B : E8          |             inx                         
- 1130 |  1     qs.s    379 | Code        | 11 |         |    1 | 00/888C : 88          |             dey                         
- 1131 |  1     qs.s    379 | Code        | 11 |         |    2 | 00/888D : D0 F4       |             bne       ozunid_126        
- 1132 |  1     qs.s    379 | Empty       | 11 |         |    0 | 00/888F               | ozunid_127                              
- 1133 |  1     qs.s    380 | Macro       | 11 |         |    0 | 00/888F               |             printm    right             
- 1134 |  1     qs.s    380 | Code        | 11 |         |    2 | 00/888F : A9 A4       |             lda       #"$"              
- 1135 |  1     qs.s    380 | Code        | 11 |         |    3 | 00/8891 : 20 ED FD    |             jsr       {$FDED}           
- 1136 |  1     qs.s    380 | Code        | 11 |         |    3 | 00/8894 : AE 54 87    |             ldx       right+1           
- 1137 |  1     qs.s    380 | Code        | 11 |         |    3 | 00/8897 : 20 44 F9    |             jsr       {$F944}           
- 1138 |  1     qs.s    380 | Code        | 11 |         |    3 | 00/889A : AE 53 87    |             ldx       right             
- 1139 |  1     qs.s    380 | Code        | 11 |         |    3 | 00/889D : 20 44 F9    |             jsr       {$F944}           
- 1140 |  1     qs.s    381 | Empty       | 11 |         |    0 | 00/88A0               |                                         
- 1141 |  1     qs.s    382 | Macro       | 11 |         |    0 | 00/88A0               |             cr                          
- 1142 |  1     qs.s    382 | Code        | 11 |         |    2 | 00/88A0 : A9 8D       |             lda       #$8D              
- 1143 |  1     qs.s    382 | Code        | 11 |         |    3 | 00/88A2 : 20 ED FD    |             jsr       {$FDED}           
- 1144 |  1     qs.s    383 | Empty       | 11 |         |    0 | 00/88A5               |                                         
- 1145 |  1     qs.s    384 | Macro       | 11 |         |    0 | 00/88A5               |             prnstr    spivot            
- 1146 |  1     qs.s    384 | Code        | 11 |         |    3 | 00/88A5 : AC 20 86    |             ldy       spivot            
- 1147 |  1     qs.s    384 | Code        | 11 |         |    2 | 00/88A8 : F0 0E       |             beq       ozunid_129        ; no char.
- 1148 |  1     qs.s    384 | Code        | 11 |         |    2 | 00/88AA : A2 00       |             ldx       #$00              
- 1149 |  1     qs.s    384 | Code        | 11 |         |    3 | 00/88AC : BD 21 86    | ozunid_128  lda       spivot+1,x        
- 1150 |  1     qs.s    384 | Code        | 11 |         |    2 | 00/88AF : 09 80       |             ora       #$80              
- 1151 |  1     qs.s    384 | Code        | 11 |         |    3 | 00/88B1 : 20 ED FD    |             jsr       {$FDED}           
- 1152 |  1     qs.s    384 | Code        | 11 |         |    1 | 00/88B4 : E8          |             inx                         
- 1153 |  1     qs.s    384 | Code        | 11 |         |    1 | 00/88B5 : 88          |             dey                         
- 1154 |  1     qs.s    384 | Code        | 11 |         |    2 | 00/88B6 : D0 F4       |             bne       ozunid_128        
- 1155 |  1     qs.s    384 | Empty       | 11 |         |    0 | 00/88B8               | ozunid_129                              
- 1156 |  1     qs.s    385 | Macro       | 11 |         |    0 | 00/88B8               |             printm    pivot             
- 1157 |  1     qs.s    385 | Code        | 11 |         |    2 | 00/88B8 : A9 A4       |             lda       #"$"              
- 1158 |  1     qs.s    385 | Code        | 11 |         |    3 | 00/88BA : 20 ED FD    |             jsr       {$FDED}           
- 1159 |  1     qs.s    385 | Code        | 11 |         |    3 | 00/88BD : AE 5A 87    |             ldx       pivot+1           
- 1160 |  1     qs.s    385 | Code        | 11 |         |    3 | 00/88C0 : 20 44 F9    |             jsr       {$F944}           
- 1161 |  1     qs.s    385 | Code        | 11 |         |    3 | 00/88C3 : AE 59 87    |             ldx       pivot             
- 1162 |  1     qs.s    385 | Code        | 11 |         |    3 | 00/88C6 : 20 44 F9    |             jsr       {$F944}           
- 1163 |  1     qs.s    386 | Macro       | 11 |         |    0 | 00/88C9               |             prnstr    sspace            
- 1164 |  1     qs.s    386 | Code        | 11 |         |    3 | 00/88C9 : AC 5C 86    |             ldy       sspace            
- 1165 |  1     qs.s    386 | Code        | 11 |         |    2 | 00/88CC : F0 0E       |             beq       ozunid_131        ; no char.
- 1166 |  1     qs.s    386 | Code        | 11 |         |    2 | 00/88CE : A2 00       |             ldx       #$00              
- 1167 |  1     qs.s    386 | Code        | 11 |         |    3 | 00/88D0 : BD 5D 86    | ozunid_130  lda       sspace+1,x        
- 1168 |  1     qs.s    386 | Code        | 11 |         |    2 | 00/88D3 : 09 80       |             ora       #$80              
- 1169 |  1     qs.s    386 | Code        | 11 |         |    3 | 00/88D5 : 20 ED FD    |             jsr       {$FDED}           
- 1170 |  1     qs.s    386 | Code        | 11 |         |    1 | 00/88D8 : E8          |             inx                         
- 1171 |  1     qs.s    386 | Code        | 11 |         |    1 | 00/88D9 : 88          |             dey                         
- 1172 |  1     qs.s    386 | Code        | 11 |         |    2 | 00/88DA : D0 F4       |             bne       ozunid_130        
- 1173 |  1     qs.s    386 | Empty       | 11 |         |    0 | 00/88DC               | ozunid_131                              
- 1174 |  1     qs.s    387 | Macro       | 11 |         |    0 | 00/88DC               |             prnstr    sscount           
- 1175 |  1     qs.s    387 | Code        | 11 |         |    3 | 00/88DC : AC 2A 86    |             ldy       sscount           
- 1176 |  1     qs.s    387 | Code        | 11 |         |    2 | 00/88DF : F0 0E       |             beq       ozunid_133        ; no char.
- 1177 |  1     qs.s    387 | Code        | 11 |         |    2 | 00/88E1 : A2 00       |             ldx       #$00              
- 1178 |  1     qs.s    387 | Code        | 11 |         |    3 | 00/88E3 : BD 2B 86    | ozunid_132  lda       sscount+1,x       
- 1179 |  1     qs.s    387 | Code        | 11 |         |    2 | 00/88E6 : 09 80       |             ora       #$80              
- 1180 |  1     qs.s    387 | Code        | 11 |         |    3 | 00/88E8 : 20 ED FD    |             jsr       {$FDED}           
- 1181 |  1     qs.s    387 | Code        | 11 |         |    1 | 00/88EB : E8          |             inx                         
- 1182 |  1     qs.s    387 | Code        | 11 |         |    1 | 00/88EC : 88          |             dey                         
- 1183 |  1     qs.s    387 | Code        | 11 |         |    2 | 00/88ED : D0 F4       |             bne       ozunid_132        
- 1184 |  1     qs.s    387 | Empty       | 11 |         |    0 | 00/88EF               | ozunid_133                              
- 1185 |  1     qs.s    388 | Macro       | 11 |         |    0 | 00/88EF               |             printm    scount            
- 1186 |  1     qs.s    388 | Code        | 11 |         |    2 | 00/88EF : A9 A4       |             lda       #"$"              
- 1187 |  1     qs.s    388 | Code        | 11 |         |    3 | 00/88F1 : 20 ED FD    |             jsr       {$FDED}           
- 1188 |  1     qs.s    388 | Code        | 11 |         |    3 | 00/88F4 : AE 4E 87    |             ldx       scount+1          
- 1189 |  1     qs.s    388 | Code        | 11 |         |    3 | 00/88F7 : 20 44 F9    |             jsr       {$F944}           
- 1190 |  1     qs.s    388 | Code        | 11 |         |    3 | 00/88FA : AE 4D 87    |             ldx       scount            
- 1191 |  1     qs.s    388 | Code        | 11 |         |    3 | 00/88FD : 20 44 F9    |             jsr       {$F944}           
- 1192 |  1     qs.s    389 | Macro       | 11 |         |    0 | 00/8900               |             cr                          
- 1193 |  1     qs.s    389 | Code        | 11 |         |    2 | 00/8900 : A9 8D       |             lda       #$8D              
- 1194 |  1     qs.s    389 | Code        | 11 |         |    3 | 00/8902 : 20 ED FD    |             jsr       {$FDED}           
- 1195 |  1     qs.s    390 | Code        | 11 |         |    3 | 00/8905 : 20 0C FD    |             jsr       {$FD0C}           
- 1196 |  1     qs.s    391 | Macro       | 11 |         |    0 | 00/8908               |             cr                          
- 1197 |  1     qs.s    391 | Code        | 11 |         |    2 | 00/8908 : A9 8D       |             lda       #$8D              
- 1198 |  1     qs.s    391 | Code        | 11 |         |    3 | 00/890A : 20 ED FD    |             jsr       {$FDED}           
- 1199 |  1     qs.s    392 | Code        | 11 |         |    1 | 00/890D : 60          |             rts                         
- 1200 |  1     qs.s    393 | Comment     | 11 |         |    0 | 00/890E               | *
- 1201 |  1     qs.s    394 | Code        | 11 |         |    3 | 00/890E : 4C 13 89    | debug       jmp       ddbug             
- 1202 |  1     qs.s    395 | Data        | 11 |         |    2 | 00/8911 : 00 00       | ltmp        hex       0000              
- 1203 |  1     qs.s    396 | Empty       | 11 |         |    0 | 00/8913               | ddbug                                   
- 1204 |  1     qs.s    397 | Code        | 11 |         |    2 | 00/8913 : A9 00       |             lda       #$00              
- 1205 |  1     qs.s    398 | Code        | 11 |         |    3 | 00/8915 : 8D 5E 87    |             sta       tempo1+1          
- 1206 |  1     qs.s    399 | Code        | 11 |         |    3 | 00/8918 : 8D 5D 87    |             sta       tempo1            
- 1207 |  1     qs.s    400 | Macro       | 11 |         |    0 | 00/891B               | doaff       getelem   {$2000};tempo1;ltmp
- 1208 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/891B : 4C 22 89    |             jmp       ozunid_136        
- 1209 |  1     qs.s    400 | Data        | 11 |         |    2 | 00/891E : 00 00       | ozunid_134  hex       0000              
- 1210 |  1     qs.s    400 | Data        | 11 |         |    2 | 00/8920 : 00 00       | ozunid_135  hex       0000              
- 1211 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/8922 : A9 00       | ozunid_136  lda       #<{$2000}         ; goffset = array address
- 1212 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8924 : 8D 1E 89    |             sta       ozunid_134        
- 1213 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/8927 : A9 20       |             lda       #>{$2000}         
- 1214 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8929 : 8D 1F 89    |             sta       ozunid_134+1      
- 1215 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/892C : AD 5D 87    |             lda       tempo1            ; index x 2 (2 bytes per element)
- 1216 |  1     qs.s    400 | Code        | 11 |         |    1 | 00/892F : 0A          |             asl                         ; stored in tmp
- 1217 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8930 : 8D 20 89    |             sta       ozunid_135        
- 1218 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8933 : AD 5E 87    |             lda       tempo1+1          
- 1219 |  1     qs.s    400 | Code        | 11 |         |    1 | 00/8936 : 2A          |             rol                         
- 1220 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8937 : 8D 21 89    |             sta       ozunid_135+1      
- 1221 |  1     qs.s    400 | Empty       | 11 |         |    0 | 00/893A               |                                         
- 1222 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/893A : AD 1E 89    |             lda       ozunid_134        ; goffset = array addr. + index x 2
- 1223 |  1     qs.s    400 | Code        | 11 |         |    1 | 00/893D : 18          |             clc                         
- 1224 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/893E : 6D 20 89    |             adc       ozunid_135        
- 1225 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8941 : 8D 1E 89    |             sta       ozunid_134        
- 1226 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8944 : AD 1F 89    |             lda       ozunid_134+1      
- 1227 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8947 : 6D 21 89    |             adc       ozunid_135+1      
- 1228 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/894A : 8D 1F 89    |             sta       ozunid_134+1      
- 1229 |  1     qs.s    400 | Empty       | 11 |         |    0 | 00/894D               |                                         
- 1231 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/894D : A2 00       |             ldx       #$00              
- 1232 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/894F : BD 1E 89    | ozunid_137  lda       ozunid_134,x      
- 1233 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/8952 : 95 08       |             sta       {$08},x           
- 1234 |  1     qs.s    400 | Code        | 11 |         |    1 | 00/8954 : E8          |             inx                         
- 1235 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/8955 : E0 02       |             cpx       #2                
- 1236 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/8957 : D0 F6       |             bne       ozunid_137        
- 1237 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/8959 : A0 00       |             ldy       #$00              
- 1238 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/895B : B1 08       |             lda       ({$08}),y         
- 1239 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/895D : 8D 11 89    |             sta       ltmp              
- 1240 |  1     qs.s    400 | Code        | 11 |         |    1 | 00/8960 : C8          |             iny                         
- 1241 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/8961 : B1 08       |             lda       ({$08}),y         
- 1242 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8963 : 8D 12 89    |             sta       ltmp+1            
- 1243 |  1     qs.s    401 | Code        | 11 |         |    2 | 00/8966 : A9 A4       |             lda       #"$"              
- 1244 |  1     qs.s    402 | Code        | 11 |         |    3 | 00/8968 : 20 ED FD    |             jsr       {$FDED}           
- 1245 |  1     qs.s    403 | Code        | 11 |         |    3 | 00/896B : AE 12 89    |             ldx       ltmp+1            
- 1246 |  1     qs.s    404 | Code        | 11 |         |    3 | 00/896E : 20 44 F9    |             jsr       {$F944}           
- 1247 |  1     qs.s    405 | Code        | 11 |         |    3 | 00/8971 : AE 11 89    |             ldx       ltmp              
- 1248 |  1     qs.s    406 | Code        | 11 |         |    3 | 00/8974 : 20 44 F9    |             jsr       {$F944}           
- 1249 |  1     qs.s    407 | Code        | 11 |         |    2 | 00/8977 : A9 A0       |             lda       #$A0              
- 1250 |  1     qs.s    408 | Code        | 11 |         |    3 | 00/8979 : 20 ED FD    |             jsr       {$FDED}           
- 1251 |  1     qs.s    409 | Code        | 11 |         |    3 | 00/897C : EE 5D 87    |             inc       tempo1            
- 1252 |  1     qs.s    410 | Code        | 11 |         |    3 | 00/897F : AD 5D 87    |             lda       tempo1            
- 1253 |  1     qs.s    411 | Code        | 11 |         |    2 | 00/8982 : C9 0A       |             cmp       #10               
- 1254 |  1     qs.s    412 | Code        | 11 |         |    2 | 00/8984 : F0 03       |             beq       doend             
- 1255 |  1     qs.s    413 | Code        | 11 |         |    3 | 00/8986 : 4C 1B 89    |             jmp       doaff             
- 1256 |  1     qs.s    414 | Code        | 11 |         |    1 | 00/8989 : 60          | doend       rts                         
- 1257 |  1     qs.s    415 | Comment     | 11 |         |    0 | 00/898A               | *
- 1258 |  1     qs.s    416 | Comment     | 11 |         |    0 | 00/898A               | * Checking routine
- 1259 |  1     qs.s    417 | Comment     | 11 |         |    0 | 00/898A               | *
- 1260 |  1     qs.s    418 | Empty       | 11 |         |    0 | 00/898A               | check                                   
- 1261 |  1     qs.s    419 | Code        | 11 |         |    3 | 00/898A : AD 4F 87    |             lda       dnb               ; tempo2 = integer count - 1
- 1262 |  1     qs.s    420 | Code        | 11 |         |    3 | 00/898D : 8D 5F 87    |             sta       tempo2            
- 1263 |  1     qs.s    421 | Code        | 11 |         |    3 | 00/8990 : AD 50 87    |             lda       dnb+1             
- 1264 |  1     qs.s    422 | Code        | 11 |         |    3 | 00/8993 : 8D 60 87    |             sta       tempo2+1          
- 1265 |  1     qs.s    423 | Macro       | 11 |         |    0 | 00/8996               |             m_dec     tempo2            ; counter = array size - 1
- 1266 |  1     qs.s    423 | Code        | 11 |         |    3 | 00/8996 : AD 5F 87    |             lda       tempo2            
- 1267 |  1     qs.s    423 | Code        | 11 |         |    2 | 00/8999 : D0 03       |             bne       ozunid_138        
- 1268 |  1     qs.s    423 | Code        | 11 |         |    3 | 00/899B : CE 60 87    |             dec       tempo2+1          
- 1269 |  1     qs.s    423 | Code        | 11 |         |    3 | 00/899E : CE 5F 87    | ozunid_138  dec       tempo2            
- 1270 |  1     qs.s    424 | Comment     | 11 |         |    0 | 00/89A1               | *
- 1271 |  1     qs.s    425 | Code        | 11 |         |    2 | 00/89A1 : A9 00       |             lda       #<{$2000}         ; ptr points to sorted array
- 1272 |  1     qs.s    426 | Code        | 11 |         |    2 | 00/89A3 : 85 08       |             sta       {$08}             
- 1273 |  1     qs.s    427 | Code        | 11 |         |    2 | 00/89A5 : A9 20       |             lda       #>{$2000}         
- 1274 |  1     qs.s    428 | Code        | 11 |         |    2 | 00/89A7 : 85 09       |             sta       {$08}+1           
- 1275 |  1     qs.s    429 | Comment     | 11 |         |    0 | 00/89A9               | *
- 1276 |  1     qs.s    430 | Code        | 11 |         |    2 | 00/89A9 : A0 00       | lcheck      ldy       #$0               ; compare integer n and integer n+1
- 1277 |  1     qs.s    431 | Code        | 11 |         |    2 | 00/89AB : B1 08       |             lda       ({$08}),y         
- 1278 |  1     qs.s    432 | Code        | 11 |         |    3 | 00/89AD : 8D 5B 87    |             sta       tempo             
- 1279 |  1     qs.s    433 | Code        | 11 |         |    1 | 00/89B0 : C8          |             iny                         
- 1280 |  1     qs.s    434 | Code        | 11 |         |    2 | 00/89B1 : B1 08       |             lda       ({$08}),y         
- 1281 |  1     qs.s    435 | Code        | 11 |         |    3 | 00/89B3 : 8D 5C 87    |             sta       tempo+1           
- 1282 |  1     qs.s    436 | Code        | 11 |         |    1 | 00/89B6 : C8          |             iny                         
- 1283 |  1     qs.s    437 | Code        | 11 |         |    2 | 00/89B7 : B1 08       |             lda       ({$08}),y         
- 1284 |  1     qs.s    438 | Code        | 11 |         |    3 | 00/89B9 : 8D 5D 87    |             sta       tempo1            
- 1285 |  1     qs.s    439 | Code        | 11 |         |    1 | 00/89BC : C8          |             iny                         
- 1286 |  1     qs.s    440 | Code        | 11 |         |    2 | 00/89BD : B1 08       |             lda       ({$08}),y         
- 1287 |  1     qs.s    441 | Code        | 11 |         |    3 | 00/89BF : 8D 5E 87    |             sta       tempo1+1          
- 1288 |  1     qs.s    442 | Macro       | 11 |         |    0 | 00/89C2               |             supeq     tempo1;tempo      
- 1289 |  1     qs.s    442 | Code        | 11 |         |    3 | 00/89C2 : AD 5E 87    |             lda       tempo1+1          
- 1290 |  1     qs.s    442 | Code        | 11 |         |    3 | 00/89C5 : CD 5C 87    |             cmp       tempo+1           
- 1291 |  1     qs.s    442 | Code        | 11 |         |    2 | 00/89C8 : F0 03       |             beq       ozunid_139        ; hi(A) > hi (B) see lo
- 1292 |  1     qs.s    442 | Code        | 11 |         |    3 | 00/89CA : 4C D3 89    |             jmp       ozunid_140        ; if A >= B : C = 1, if A < B : C = 0
- 1293 |  1     qs.s    442 | Code        | 11 |         |    3 | 00/89CD : AD 5D 87    | ozunid_139  lda       tempo1            
- 1294 |  1     qs.s    442 | Code        | 11 |         |    3 | 00/89D0 : CD 5B 87    |             cmp       tempo             
- 1295 |  1     qs.s    442 | Empty       | 11 |         |    0 | 00/89D3               | ozunid_140                              
- 1296 |  1     qs.s    443 | Code        | 11 |         |    2 | 00/89D3 : 90 21       |             bcc       erroron           ; tempo1 >= tempo ?
- 1297 |  1     qs.s    444 | Empty       | 11 |         |    0 | 00/89D5               |                                         
- 1298 |  1     qs.s    445 | Macro       | 11 |         |    0 | 00/89D5               |             m_inc     {$08}             ; next integer
- 1299 |  1     qs.s    445 | Code        | 11 |         |    2 | 00/89D5 : E6 08       |             inc       {$08}             
- 1300 |  1     qs.s    445 | Code        | 11 |         |    2 | 00/89D7 : D0 02       |             bne       ozunid_141        
- 1301 |  1     qs.s    445 | Code        | 11 |         |    2 | 00/89D9 : E6 09       |             inc       {$08}+1           
- 1302 |  1     qs.s    445 | Empty       | 11 |         |    0 | 00/89DB               | ozunid_141                              
- 1303 |  1     qs.s    446 | Macro       | 11 |         |    0 | 00/89DB               |             m_inc     {$08}             
- 1304 |  1     qs.s    446 | Code        | 11 |         |    2 | 00/89DB : E6 08       |             inc       {$08}             
- 1305 |  1     qs.s    446 | Code        | 11 |         |    2 | 00/89DD : D0 02       |             bne       ozunid_142        
- 1306 |  1     qs.s    446 | Code        | 11 |         |    2 | 00/89DF : E6 09       |             inc       {$08}+1           
- 1307 |  1     qs.s    446 | Empty       | 11 |         |    0 | 00/89E1               | ozunid_142                              
- 1308 |  1     qs.s    447 | Macro       | 11 |         |    0 | 00/89E1               |             m_dec     tempo2            ; dec counter
- 1309 |  1     qs.s    447 | Code        | 11 |         |    3 | 00/89E1 : AD 5F 87    |             lda       tempo2            
- 1310 |  1     qs.s    447 | Code        | 11 |         |    2 | 00/89E4 : D0 03       |             bne       ozunid_143        
- 1311 |  1     qs.s    447 | Code        | 11 |         |    3 | 00/89E6 : CE 60 87    |             dec       tempo2+1          
- 1312 |  1     qs.s    447 | Code        | 11 |         |    3 | 00/89E9 : CE 5F 87    | ozunid_143  dec       tempo2            
- 1313 |  1     qs.s    448 | Code        | 11 |         |    3 | 00/89EC : AD 5F 87    |             lda       tempo2            
- 1314 |  1     qs.s    449 | Code        | 11 |         |    3 | 00/89EF : 0D 60 87    |             ora       tempo2+1          
- 1315 |  1     qs.s    450 | Code        | 11 |         |    2 | 00/89F2 : D0 B5       |             bne       lcheck            
- 1316 |  1     qs.s    451 | Code        | 11 |         |    1 | 00/89F4 : 18          |             clc                         ; no error flag
- 1317 |  1     qs.s    452 | Code        | 11 |         |    1 | 00/89F5 : 60          |             rts                         
- 1318 |  1     qs.s    453 | Code        | 11 |         |    1 | 00/89F6 : 38          | erroron     sec                         ; error flag
- 1319 |  1     qs.s    454 | Code        | 11 |         |    1 | 00/89F7 : 60          |             rts                         
- 1320 |  1     qs.s    455 | Empty       | 11 |         |    0 | 00/89F8               |                                         
- 1321 |  1     qs.s    456 | Empty       | 11 |         |    0 | 00/89F8               |                                         
- 1322 |  1     qs.s    457 | Empty       | 11 |         |    0 | 00/89F8               |                                         
- 1323 |  1     qs.s    458 | Empty       | 11 |         |    0 | 00/89F8               |                                         
+  943 |  1     qs.s    272 | Empty       | 11 |         |    0 | 00/874C               |                                         
+  944 |  1     qs.s    273 | Data        | 11 |         |    2 | 00/874C : 00 00       | scount      hex       0000              
+  945 |  1     qs.s    274 | Data        | 11 |         |    2 | 00/874E : 00 10       | dnb         hex       0010              ; quantity of integers
+  946 |  1     qs.s    275 | Comment     | 11 |         |    0 | 00/8750               | *
+  947 |  1     qs.s    276 | Data        | 11 |         |    2 | 00/8750 : 00 00       | Rright      hex       0000              
+  948 |  1     qs.s    277 | Data        | 11 |         |    2 | 00/8752 : 00 00       | right       hex       0000              
+  949 |  1     qs.s    278 | Data        | 11 |         |    2 | 00/8754 : 00 00       | Lleft       hex       0000              
+  950 |  1     qs.s    279 | Data        | 11 |         |    2 | 00/8756 : 00 00       | left        hex       0000              
+  951 |  1     qs.s    280 | Data        | 11 |         |    2 | 00/8758 : 00 00       | pivot       hex       0000              
+  952 |  1     qs.s    281 | Comment     | 11 |         |    0 | 00/875A               | *
+  953 |  1     qs.s    282 | Data        | 11 |         |    2 | 00/875A : 00 00       | tempo       hex       0000              
+  954 |  1     qs.s    283 | Data        | 11 |         |    2 | 00/875C : 00 00       | tempo1      hex       0000              
+  955 |  1     qs.s    284 | Data        | 11 |         |    2 | 00/875E : 00 00       | tempo2      hex       0000              
+  956 |  1     qs.s    285 | Data        | 11 |         |    2 | 00/8760 : 00 00       | tempo3      hex       0000              
+  957 |  1     qs.s    286 | Comment     | 11 |         |    0 | 00/8762               | *
+  958 |  1     qs.s    287 | Comment     | 11 |         |    0 | 00/8762               | *
+  959 |  1     qs.s    288 | Comment     | 11 |         |    0 | 00/8762               | * STACK routines
+  960 |  1     qs.s    289 | Comment     | 11 |         |    0 | 00/8762               | *
+  961 |  1     qs.s    290 | Comment     | 11 |         |    0 | 00/8762               | * Stack : push a 16 bits value on stack
+  962 |  1     qs.s    291 | Comment     | 11 |         |    0 | 00/8762               | * tempo = pointer to vlue to push
+  963 |  1     qs.s    292 | Code        | 11 |         |    1 | 00/8762 : EA          | push        nop                         
+  964 |  1     qs.s    293 | Code        | 11 |         |    2 | 00/8763 : A0 00       |             ldy       #$00              
+  965 |  1     qs.s    294 | Code        | 11 |         |    3 | 00/8765 : AD 5A 87    |             lda       tempo             ; get value from tempo (lo)
+  966 |  1     qs.s    295 | Code        | 11 |         |    2 | 00/8768 : 91 06       |             sta       ({$06}),y         ; drop on stack
+  967 |  1     qs.s    296 | Code        | 11 |         |    1 | 00/876A : C8          |             iny                         
+  968 |  1     qs.s    297 | Code        | 11 |         |    3 | 00/876B : AD 5B 87    |             lda       tempo+1           ; get value from tempo (hi)
+  969 |  1     qs.s    298 | Code        | 11 |         |    2 | 00/876E : 91 06       |             sta       ({$06}),y         ; drop on stack
+  970 |  1     qs.s    299 | Code        | 11 |         |    2 | 00/8770 : A5 06       |             lda       {$06}             ; sptr = sptr + 2 (to point to next free memory)
+  971 |  1     qs.s    300 | Code        | 11 |         |    1 | 00/8772 : 18          |             clc                         
+  972 |  1     qs.s    301 | Code        | 11 |         |    2 | 00/8773 : 69 02       |             adc       #$02              
+  973 |  1     qs.s    302 | Code        | 11 |         |    2 | 00/8775 : 85 06       |             sta       {$06}             
+  974 |  1     qs.s    303 | Code        | 11 |         |    2 | 00/8777 : A5 07       |             lda       {$06}+1           
+  975 |  1     qs.s    304 | Code        | 11 |         |    2 | 00/8779 : 69 00       |             adc       #$00              
+  976 |  1     qs.s    305 | Code        | 11 |         |    2 | 00/877B : 85 07       |             sta       {$06}+1           
+  977 |  1     qs.s    306 | Code        | 11 |         |    1 | 00/877D : 60          | epush       rts                         
+  978 |  1     qs.s    307 | Comment     | 11 |         |    0 | 00/877E               | *
+  979 |  1     qs.s    308 | Comment     | 11 |         |    0 | 00/877E               | * Stack : pop a 16 bits value from stack 
+  980 |  1     qs.s    309 | Code        | 11 |         |    1 | 00/877E : EA          | pop         nop                         ; pop a 16 bits value from stack
+  981 |  1     qs.s    310 | Code        | 11 |         |    2 | 00/877F : A5 06       |             lda       {$06}             ; set sptr to sptr-2
+  982 |  1     qs.s    311 | Code        | 11 |         |    1 | 00/8781 : 38          |             sec                         
+  983 |  1     qs.s    312 | Code        | 11 |         |    2 | 00/8782 : E9 02       |             sbc       #$02              
+  984 |  1     qs.s    313 | Code        | 11 |         |    2 | 00/8784 : 85 06       |             sta       {$06}             
+  985 |  1     qs.s    314 | Code        | 11 |         |    2 | 00/8786 : A5 07       |             lda       {$06}+1           
+  986 |  1     qs.s    315 | Code        | 11 |         |    2 | 00/8788 : E9 00       |             sbc       #$00              
+  987 |  1     qs.s    316 | Code        | 11 |         |    2 | 00/878A : 85 07       |             sta       {$06}+1           
+  988 |  1     qs.s    317 | Code        | 11 |         |    2 | 00/878C : A0 00       |             ldy       #$00              ; get value
+  989 |  1     qs.s    318 | Code        | 11 |         |    2 | 00/878E : B1 06       |             lda       ({$06}),y         
+  990 |  1     qs.s    319 | Code        | 11 |         |    3 | 00/8790 : 8D 5A 87    |             sta       tempo             ; to tempo
+  991 |  1     qs.s    320 | Code        | 11 |         |    1 | 00/8793 : C8          |             iny                         
+  992 |  1     qs.s    321 | Code        | 11 |         |    2 | 00/8794 : B1 06       |             lda       ({$06}),y         
+  993 |  1     qs.s    322 | Code        | 11 |         |    3 | 00/8796 : 8D 5B 87    |             sta       tempo+1           
+  994 |  1     qs.s    323 | Code        | 11 |         |    1 | 00/8799 : 60          | nodec       rts                         
+  995 |  1     qs.s    324 | Empty       | 11 |         |    0 | 00/879A               |                                         
+  996 |  1     qs.s    325 | Comment     | 11 |         |    0 | 00/879A               | * 
+  997 |  1     qs.s    326 | Comment     | 11 |         |    0 | 00/879A               | * Random number generator
+  998 |  1     qs.s    327 | Comment     | 11 |         |    0 | 00/879A               | *     
+  999 |  1     qs.s    328 | Data        | 11 |         |    1 | 00/879A : 00          | R1          hex       00                
+ 1000 |  1     qs.s    329 | Data        | 11 |         |    1 | 00/879B : 00          | R2          hex       00                
+ 1001 |  1     qs.s    330 | Data        | 11 |         |    1 | 00/879C : 00          | R3          hex       00                
+ 1002 |  1     qs.s    331 | Data        | 11 |         |    1 | 00/879D : 00          | R4          hex       00                
+ 1003 |  1     qs.s    332 | Comment     | 11 |         |    0 | 00/879E               | *
+ 1004 |  1     qs.s    333 | Code        | 11 |         |    3 | 00/879E : 6E 9D 87    | random      ror       R4                ; Bit 25 to carry
+ 1005 |  1     qs.s    334 | Code        | 11 |         |    3 | 00/87A1 : AD 9C 87    |             lda       R3                ; Shift left 8 bits
+ 1006 |  1     qs.s    335 | Code        | 11 |         |    3 | 00/87A4 : 8D 9D 87    |             sta       R4                
+ 1007 |  1     qs.s    336 | Code        | 11 |         |    3 | 00/87A7 : AD 9B 87    |             lda       R2                
+ 1008 |  1     qs.s    337 | Code        | 11 |         |    3 | 00/87AA : 8D 9C 87    |             sta       R3                
+ 1009 |  1     qs.s    338 | Code        | 11 |         |    3 | 00/87AD : AD 9A 87    |             lda       R1                
+ 1010 |  1     qs.s    339 | Code        | 11 |         |    3 | 00/87B0 : 8D 9B 87    |             sta       R2                
+ 1011 |  1     qs.s    340 | Code        | 11 |         |    3 | 00/87B3 : AD 9D 87    |             lda       R4                ; Get original bits 17-24
+ 1012 |  1     qs.s    341 | Code        | 11 |         |    1 | 00/87B6 : 6A          |             ror                         ; Now bits 18-25 in ACC
+ 1013 |  1     qs.s    342 | Code        | 11 |         |    3 | 00/87B7 : 2E 9A 87    |             rol       R1                ; R1 holds bits 1-7
+ 1014 |  1     qs.s    343 | Code        | 11 |         |    3 | 00/87BA : 4D 9A 87    |             EOR       R1                ; Seven bits at once
+ 1015 |  1     qs.s    344 | Code        | 11 |         |    3 | 00/87BD : 6E 9D 87    |             ror       R4                ; Shift right by one bit
+ 1016 |  1     qs.s    345 | Code        | 11 |         |    3 | 00/87C0 : 6E 9C 87    |             ror       R3                
+ 1017 |  1     qs.s    346 | Code        | 11 |         |    3 | 00/87C3 : 6E 9B 87    |             ror       R2                
+ 1018 |  1     qs.s    347 | Code        | 11 |         |    1 | 00/87C6 : 6A          |             ror                         
+ 1019 |  1     qs.s    348 | Code        | 11 |         |    3 | 00/87C7 : 8D 9A 87    |             sta       R1                
+ 1020 |  1     qs.s    349 | Code        | 11 |         |    1 | 00/87CA : 60          |             rts                         
+ 1021 |  1     qs.s    350 | Comment     | 11 |         |    0 | 00/87CB               | *
+ 1022 |  1     qs.s    351 | Comment     | 11 |         |    0 | 00/87CB               | * Routine to seed the random number generator with a
+ 1023 |  1     qs.s    352 | Comment     | 11 |         |    0 | 00/87CB               | * reasonable initial value:
+ 1024 |  1     qs.s    353 | Comment     | 11 |         |    0 | 00/87CB               | *
+ 1025 |  1     qs.s    354 | Code        | 11 |         |    2 | 00/87CB : A5 4E       | initrandom  lda       $4E               ; Seed the random number generator
+ 1026 |  1     qs.s    355 | Code        | 11 |         |    3 | 00/87CD : 8D 9A 87    |             sta       R1                ; based on delay between keypresses
+ 1027 |  1     qs.s    356 | Code        | 11 |         |    3 | 00/87D0 : 8D 9C 87    |             sta       R3                
+ 1028 |  1     qs.s    357 | Code        | 11 |         |    2 | 00/87D3 : A5 4F       |             lda       $4F               
+ 1029 |  1     qs.s    358 | Code        | 11 |         |    3 | 00/87D5 : 8D 9B 87    |             sta       R2                
+ 1030 |  1     qs.s    359 | Code        | 11 |         |    3 | 00/87D8 : 8D 9D 87    |             sta       R4                
+ 1031 |  1     qs.s    360 | Code        | 11 |         |    1 | 00/87DB : 60          |             rts                         
+ 1032 |  1     qs.s    361 | Empty       | 11 |         |    0 | 00/87DC               |                                         
+ 1033 |  1     qs.s    362 | Comment     | 11 |         |    0 | 00/87DC               | *
+ 1034 |  1     qs.s    363 | Comment     | 11 |         |    0 | 00/87DC               | * DEBUG routines
+ 1035 |  1     qs.s    364 | Comment     | 11 |         |    0 | 00/87DC               | * print vars
+ 1036 |  1     qs.s    365 | Empty       | 11 |         |    0 | 00/87DC               | dbg                                     
+ 1037 |  1     qs.s    366 | Code        | 11 |         |    3 | 00/87DC : 20 0D 89    |             jsr       debug             
+ 1038 |  1     qs.s    367 | Macro       | 11 |         |    0 | 00/87DF               |             cr                          
+ 1039 |  1     qs.s    367 | Code        | 11 |         |    2 | 00/87DF : A9 8D       |             lda       #$8D              
+ 1040 |  1     qs.s    367 | Code        | 11 |         |    3 | 00/87E1 : 20 ED FD    |             jsr       {$FDED}           
+ 1041 |  1     qs.s    368 | Macro       | 11 |         |    0 | 00/87E4               |             prnstr    sLL               
+ 1042 |  1     qs.s    368 | Code        | 11 |         |    3 | 00/87E4 : AC 52 86    |             ldy       sLL               
+ 1043 |  1     qs.s    368 | Code        | 11 |         |    2 | 00/87E7 : F0 0E       |             beq       ozunid_117        ; no char.
+ 1044 |  1     qs.s    368 | Code        | 11 |         |    2 | 00/87E9 : A2 00       |             ldx       #$00              
+ 1045 |  1     qs.s    368 | Code        | 11 |         |    3 | 00/87EB : BD 53 86    | ozunid_116  lda       sLL+1,x           
+ 1046 |  1     qs.s    368 | Code        | 11 |         |    2 | 00/87EE : 09 80       |             ora       #$80              
+ 1047 |  1     qs.s    368 | Code        | 11 |         |    3 | 00/87F0 : 20 ED FD    |             jsr       {$FDED}           
+ 1048 |  1     qs.s    368 | Code        | 11 |         |    1 | 00/87F3 : E8          |             inx                         
+ 1049 |  1     qs.s    368 | Code        | 11 |         |    1 | 00/87F4 : 88          |             dey                         
+ 1050 |  1     qs.s    368 | Code        | 11 |         |    2 | 00/87F5 : D0 F4       |             bne       ozunid_116        
+ 1051 |  1     qs.s    368 | Empty       | 11 |         |    0 | 00/87F7               | ozunid_117                              
+ 1052 |  1     qs.s    369 | Macro       | 11 |         |    0 | 00/87F7               |             printm    Lleft             
+ 1053 |  1     qs.s    369 | Code        | 11 |         |    2 | 00/87F7 : A9 A4       |             lda       #"$"              
+ 1054 |  1     qs.s    369 | Code        | 11 |         |    3 | 00/87F9 : 20 ED FD    |             jsr       {$FDED}           
+ 1055 |  1     qs.s    369 | Code        | 11 |         |    3 | 00/87FC : AE 55 87    |             ldx       Lleft+1           
+ 1056 |  1     qs.s    369 | Code        | 11 |         |    3 | 00/87FF : 20 44 F9    |             jsr       {$F944}           
+ 1057 |  1     qs.s    369 | Code        | 11 |         |    3 | 00/8802 : AE 54 87    |             ldx       Lleft             
+ 1058 |  1     qs.s    369 | Code        | 11 |         |    3 | 00/8805 : 20 44 F9    |             jsr       {$F944}           
+ 1059 |  1     qs.s    370 | Macro       | 11 |         |    0 | 00/8808               |             prnstr    sspace            
+ 1060 |  1     qs.s    370 | Code        | 11 |         |    3 | 00/8808 : AC 5C 86    |             ldy       sspace            
+ 1061 |  1     qs.s    370 | Code        | 11 |         |    2 | 00/880B : F0 0E       |             beq       ozunid_119        ; no char.
+ 1062 |  1     qs.s    370 | Code        | 11 |         |    2 | 00/880D : A2 00       |             ldx       #$00              
+ 1063 |  1     qs.s    370 | Code        | 11 |         |    3 | 00/880F : BD 5D 86    | ozunid_118  lda       sspace+1,x        
+ 1064 |  1     qs.s    370 | Code        | 11 |         |    2 | 00/8812 : 09 80       |             ora       #$80              
+ 1065 |  1     qs.s    370 | Code        | 11 |         |    3 | 00/8814 : 20 ED FD    |             jsr       {$FDED}           
+ 1066 |  1     qs.s    370 | Code        | 11 |         |    1 | 00/8817 : E8          |             inx                         
+ 1067 |  1     qs.s    370 | Code        | 11 |         |    1 | 00/8818 : 88          |             dey                         
+ 1068 |  1     qs.s    370 | Code        | 11 |         |    2 | 00/8819 : D0 F4       |             bne       ozunid_118        
+ 1069 |  1     qs.s    370 | Empty       | 11 |         |    0 | 00/881B               | ozunid_119                              
+ 1070 |  1     qs.s    371 | Macro       | 11 |         |    0 | 00/881B               |             prnstr    sRR               
+ 1071 |  1     qs.s    371 | Code        | 11 |         |    3 | 00/881B : AC 48 86    |             ldy       sRR               
+ 1072 |  1     qs.s    371 | Code        | 11 |         |    2 | 00/881E : F0 0E       |             beq       ozunid_121        ; no char.
+ 1073 |  1     qs.s    371 | Code        | 11 |         |    2 | 00/8820 : A2 00       |             ldx       #$00              
+ 1074 |  1     qs.s    371 | Code        | 11 |         |    3 | 00/8822 : BD 49 86    | ozunid_120  lda       sRR+1,x           
+ 1075 |  1     qs.s    371 | Code        | 11 |         |    2 | 00/8825 : 09 80       |             ora       #$80              
+ 1076 |  1     qs.s    371 | Code        | 11 |         |    3 | 00/8827 : 20 ED FD    |             jsr       {$FDED}           
+ 1077 |  1     qs.s    371 | Code        | 11 |         |    1 | 00/882A : E8          |             inx                         
+ 1078 |  1     qs.s    371 | Code        | 11 |         |    1 | 00/882B : 88          |             dey                         
+ 1079 |  1     qs.s    371 | Code        | 11 |         |    2 | 00/882C : D0 F4       |             bne       ozunid_120        
+ 1080 |  1     qs.s    371 | Empty       | 11 |         |    0 | 00/882E               | ozunid_121                              
+ 1081 |  1     qs.s    372 | Macro       | 11 |         |    0 | 00/882E               |             printm    Rright            
+ 1082 |  1     qs.s    372 | Code        | 11 |         |    2 | 00/882E : A9 A4       |             lda       #"$"              
+ 1083 |  1     qs.s    372 | Code        | 11 |         |    3 | 00/8830 : 20 ED FD    |             jsr       {$FDED}           
+ 1084 |  1     qs.s    372 | Code        | 11 |         |    3 | 00/8833 : AE 51 87    |             ldx       Rright+1          
+ 1085 |  1     qs.s    372 | Code        | 11 |         |    3 | 00/8836 : 20 44 F9    |             jsr       {$F944}           
+ 1086 |  1     qs.s    372 | Code        | 11 |         |    3 | 00/8839 : AE 50 87    |             ldx       Rright            
+ 1087 |  1     qs.s    372 | Code        | 11 |         |    3 | 00/883C : 20 44 F9    |             jsr       {$F944}           
+ 1088 |  1     qs.s    373 | Empty       | 11 |         |    0 | 00/883F               |                                         
+ 1089 |  1     qs.s    374 | Macro       | 11 |         |    0 | 00/883F               |             cr                          
+ 1090 |  1     qs.s    374 | Code        | 11 |         |    2 | 00/883F : A9 8D       |             lda       #$8D              
+ 1091 |  1     qs.s    374 | Code        | 11 |         |    3 | 00/8841 : 20 ED FD    |             jsr       {$FDED}           
+ 1092 |  1     qs.s    375 | Empty       | 11 |         |    0 | 00/8844               |                                         
+ 1093 |  1     qs.s    376 | Macro       | 11 |         |    0 | 00/8844               |             prnstr    sleft             
+ 1094 |  1     qs.s    376 | Code        | 11 |         |    3 | 00/8844 : AC 34 86    |             ldy       sleft             
+ 1095 |  1     qs.s    376 | Code        | 11 |         |    2 | 00/8847 : F0 0E       |             beq       ozunid_123        ; no char.
+ 1096 |  1     qs.s    376 | Code        | 11 |         |    2 | 00/8849 : A2 00       |             ldx       #$00              
+ 1097 |  1     qs.s    376 | Code        | 11 |         |    3 | 00/884B : BD 35 86    | ozunid_122  lda       sleft+1,x         
+ 1098 |  1     qs.s    376 | Code        | 11 |         |    2 | 00/884E : 09 80       |             ora       #$80              
+ 1099 |  1     qs.s    376 | Code        | 11 |         |    3 | 00/8850 : 20 ED FD    |             jsr       {$FDED}           
+ 1100 |  1     qs.s    376 | Code        | 11 |         |    1 | 00/8853 : E8          |             inx                         
+ 1101 |  1     qs.s    376 | Code        | 11 |         |    1 | 00/8854 : 88          |             dey                         
+ 1102 |  1     qs.s    376 | Code        | 11 |         |    2 | 00/8855 : D0 F4       |             bne       ozunid_122        
+ 1103 |  1     qs.s    376 | Empty       | 11 |         |    0 | 00/8857               | ozunid_123                              
+ 1104 |  1     qs.s    377 | Macro       | 11 |         |    0 | 00/8857               |             printm    left              
+ 1105 |  1     qs.s    377 | Code        | 11 |         |    2 | 00/8857 : A9 A4       |             lda       #"$"              
+ 1106 |  1     qs.s    377 | Code        | 11 |         |    3 | 00/8859 : 20 ED FD    |             jsr       {$FDED}           
+ 1107 |  1     qs.s    377 | Code        | 11 |         |    3 | 00/885C : AE 57 87    |             ldx       left+1            
+ 1108 |  1     qs.s    377 | Code        | 11 |         |    3 | 00/885F : 20 44 F9    |             jsr       {$F944}           
+ 1109 |  1     qs.s    377 | Code        | 11 |         |    3 | 00/8862 : AE 56 87    |             ldx       left              
+ 1110 |  1     qs.s    377 | Code        | 11 |         |    3 | 00/8865 : 20 44 F9    |             jsr       {$F944}           
+ 1111 |  1     qs.s    378 | Macro       | 11 |         |    0 | 00/8868               |             prnstr    sspace            
+ 1112 |  1     qs.s    378 | Code        | 11 |         |    3 | 00/8868 : AC 5C 86    |             ldy       sspace            
+ 1113 |  1     qs.s    378 | Code        | 11 |         |    2 | 00/886B : F0 0E       |             beq       ozunid_125        ; no char.
+ 1114 |  1     qs.s    378 | Code        | 11 |         |    2 | 00/886D : A2 00       |             ldx       #$00              
+ 1115 |  1     qs.s    378 | Code        | 11 |         |    3 | 00/886F : BD 5D 86    | ozunid_124  lda       sspace+1,x        
+ 1116 |  1     qs.s    378 | Code        | 11 |         |    2 | 00/8872 : 09 80       |             ora       #$80              
+ 1117 |  1     qs.s    378 | Code        | 11 |         |    3 | 00/8874 : 20 ED FD    |             jsr       {$FDED}           
+ 1118 |  1     qs.s    378 | Code        | 11 |         |    1 | 00/8877 : E8          |             inx                         
+ 1119 |  1     qs.s    378 | Code        | 11 |         |    1 | 00/8878 : 88          |             dey                         
+ 1120 |  1     qs.s    378 | Code        | 11 |         |    2 | 00/8879 : D0 F4       |             bne       ozunid_124        
+ 1121 |  1     qs.s    378 | Empty       | 11 |         |    0 | 00/887B               | ozunid_125                              
+ 1122 |  1     qs.s    379 | Macro       | 11 |         |    0 | 00/887B               |             prnstr    sright            
+ 1123 |  1     qs.s    379 | Code        | 11 |         |    3 | 00/887B : AC 3E 86    |             ldy       sright            
+ 1124 |  1     qs.s    379 | Code        | 11 |         |    2 | 00/887E : F0 0E       |             beq       ozunid_127        ; no char.
+ 1125 |  1     qs.s    379 | Code        | 11 |         |    2 | 00/8880 : A2 00       |             ldx       #$00              
+ 1126 |  1     qs.s    379 | Code        | 11 |         |    3 | 00/8882 : BD 3F 86    | ozunid_126  lda       sright+1,x        
+ 1127 |  1     qs.s    379 | Code        | 11 |         |    2 | 00/8885 : 09 80       |             ora       #$80              
+ 1128 |  1     qs.s    379 | Code        | 11 |         |    3 | 00/8887 : 20 ED FD    |             jsr       {$FDED}           
+ 1129 |  1     qs.s    379 | Code        | 11 |         |    1 | 00/888A : E8          |             inx                         
+ 1130 |  1     qs.s    379 | Code        | 11 |         |    1 | 00/888B : 88          |             dey                         
+ 1131 |  1     qs.s    379 | Code        | 11 |         |    2 | 00/888C : D0 F4       |             bne       ozunid_126        
+ 1132 |  1     qs.s    379 | Empty       | 11 |         |    0 | 00/888E               | ozunid_127                              
+ 1133 |  1     qs.s    380 | Macro       | 11 |         |    0 | 00/888E               |             printm    right             
+ 1134 |  1     qs.s    380 | Code        | 11 |         |    2 | 00/888E : A9 A4       |             lda       #"$"              
+ 1135 |  1     qs.s    380 | Code        | 11 |         |    3 | 00/8890 : 20 ED FD    |             jsr       {$FDED}           
+ 1136 |  1     qs.s    380 | Code        | 11 |         |    3 | 00/8893 : AE 53 87    |             ldx       right+1           
+ 1137 |  1     qs.s    380 | Code        | 11 |         |    3 | 00/8896 : 20 44 F9    |             jsr       {$F944}           
+ 1138 |  1     qs.s    380 | Code        | 11 |         |    3 | 00/8899 : AE 52 87    |             ldx       right             
+ 1139 |  1     qs.s    380 | Code        | 11 |         |    3 | 00/889C : 20 44 F9    |             jsr       {$F944}           
+ 1140 |  1     qs.s    381 | Empty       | 11 |         |    0 | 00/889F               |                                         
+ 1141 |  1     qs.s    382 | Macro       | 11 |         |    0 | 00/889F               |             cr                          
+ 1142 |  1     qs.s    382 | Code        | 11 |         |    2 | 00/889F : A9 8D       |             lda       #$8D              
+ 1143 |  1     qs.s    382 | Code        | 11 |         |    3 | 00/88A1 : 20 ED FD    |             jsr       {$FDED}           
+ 1144 |  1     qs.s    383 | Empty       | 11 |         |    0 | 00/88A4               |                                         
+ 1145 |  1     qs.s    384 | Macro       | 11 |         |    0 | 00/88A4               |             prnstr    spivot            
+ 1146 |  1     qs.s    384 | Code        | 11 |         |    3 | 00/88A4 : AC 20 86    |             ldy       spivot            
+ 1147 |  1     qs.s    384 | Code        | 11 |         |    2 | 00/88A7 : F0 0E       |             beq       ozunid_129        ; no char.
+ 1148 |  1     qs.s    384 | Code        | 11 |         |    2 | 00/88A9 : A2 00       |             ldx       #$00              
+ 1149 |  1     qs.s    384 | Code        | 11 |         |    3 | 00/88AB : BD 21 86    | ozunid_128  lda       spivot+1,x        
+ 1150 |  1     qs.s    384 | Code        | 11 |         |    2 | 00/88AE : 09 80       |             ora       #$80              
+ 1151 |  1     qs.s    384 | Code        | 11 |         |    3 | 00/88B0 : 20 ED FD    |             jsr       {$FDED}           
+ 1152 |  1     qs.s    384 | Code        | 11 |         |    1 | 00/88B3 : E8          |             inx                         
+ 1153 |  1     qs.s    384 | Code        | 11 |         |    1 | 00/88B4 : 88          |             dey                         
+ 1154 |  1     qs.s    384 | Code        | 11 |         |    2 | 00/88B5 : D0 F4       |             bne       ozunid_128        
+ 1155 |  1     qs.s    384 | Empty       | 11 |         |    0 | 00/88B7               | ozunid_129                              
+ 1156 |  1     qs.s    385 | Macro       | 11 |         |    0 | 00/88B7               |             printm    pivot             
+ 1157 |  1     qs.s    385 | Code        | 11 |         |    2 | 00/88B7 : A9 A4       |             lda       #"$"              
+ 1158 |  1     qs.s    385 | Code        | 11 |         |    3 | 00/88B9 : 20 ED FD    |             jsr       {$FDED}           
+ 1159 |  1     qs.s    385 | Code        | 11 |         |    3 | 00/88BC : AE 59 87    |             ldx       pivot+1           
+ 1160 |  1     qs.s    385 | Code        | 11 |         |    3 | 00/88BF : 20 44 F9    |             jsr       {$F944}           
+ 1161 |  1     qs.s    385 | Code        | 11 |         |    3 | 00/88C2 : AE 58 87    |             ldx       pivot             
+ 1162 |  1     qs.s    385 | Code        | 11 |         |    3 | 00/88C5 : 20 44 F9    |             jsr       {$F944}           
+ 1163 |  1     qs.s    386 | Macro       | 11 |         |    0 | 00/88C8               |             prnstr    sspace            
+ 1164 |  1     qs.s    386 | Code        | 11 |         |    3 | 00/88C8 : AC 5C 86    |             ldy       sspace            
+ 1165 |  1     qs.s    386 | Code        | 11 |         |    2 | 00/88CB : F0 0E       |             beq       ozunid_131        ; no char.
+ 1166 |  1     qs.s    386 | Code        | 11 |         |    2 | 00/88CD : A2 00       |             ldx       #$00              
+ 1167 |  1     qs.s    386 | Code        | 11 |         |    3 | 00/88CF : BD 5D 86    | ozunid_130  lda       sspace+1,x        
+ 1168 |  1     qs.s    386 | Code        | 11 |         |    2 | 00/88D2 : 09 80       |             ora       #$80              
+ 1169 |  1     qs.s    386 | Code        | 11 |         |    3 | 00/88D4 : 20 ED FD    |             jsr       {$FDED}           
+ 1170 |  1     qs.s    386 | Code        | 11 |         |    1 | 00/88D7 : E8          |             inx                         
+ 1171 |  1     qs.s    386 | Code        | 11 |         |    1 | 00/88D8 : 88          |             dey                         
+ 1172 |  1     qs.s    386 | Code        | 11 |         |    2 | 00/88D9 : D0 F4       |             bne       ozunid_130        
+ 1173 |  1     qs.s    386 | Empty       | 11 |         |    0 | 00/88DB               | ozunid_131                              
+ 1174 |  1     qs.s    387 | Macro       | 11 |         |    0 | 00/88DB               |             prnstr    sscount           
+ 1175 |  1     qs.s    387 | Code        | 11 |         |    3 | 00/88DB : AC 2A 86    |             ldy       sscount           
+ 1176 |  1     qs.s    387 | Code        | 11 |         |    2 | 00/88DE : F0 0E       |             beq       ozunid_133        ; no char.
+ 1177 |  1     qs.s    387 | Code        | 11 |         |    2 | 00/88E0 : A2 00       |             ldx       #$00              
+ 1178 |  1     qs.s    387 | Code        | 11 |         |    3 | 00/88E2 : BD 2B 86    | ozunid_132  lda       sscount+1,x       
+ 1179 |  1     qs.s    387 | Code        | 11 |         |    2 | 00/88E5 : 09 80       |             ora       #$80              
+ 1180 |  1     qs.s    387 | Code        | 11 |         |    3 | 00/88E7 : 20 ED FD    |             jsr       {$FDED}           
+ 1181 |  1     qs.s    387 | Code        | 11 |         |    1 | 00/88EA : E8          |             inx                         
+ 1182 |  1     qs.s    387 | Code        | 11 |         |    1 | 00/88EB : 88          |             dey                         
+ 1183 |  1     qs.s    387 | Code        | 11 |         |    2 | 00/88EC : D0 F4       |             bne       ozunid_132        
+ 1184 |  1     qs.s    387 | Empty       | 11 |         |    0 | 00/88EE               | ozunid_133                              
+ 1185 |  1     qs.s    388 | Macro       | 11 |         |    0 | 00/88EE               |             printm    scount            
+ 1186 |  1     qs.s    388 | Code        | 11 |         |    2 | 00/88EE : A9 A4       |             lda       #"$"              
+ 1187 |  1     qs.s    388 | Code        | 11 |         |    3 | 00/88F0 : 20 ED FD    |             jsr       {$FDED}           
+ 1188 |  1     qs.s    388 | Code        | 11 |         |    3 | 00/88F3 : AE 4D 87    |             ldx       scount+1          
+ 1189 |  1     qs.s    388 | Code        | 11 |         |    3 | 00/88F6 : 20 44 F9    |             jsr       {$F944}           
+ 1190 |  1     qs.s    388 | Code        | 11 |         |    3 | 00/88F9 : AE 4C 87    |             ldx       scount            
+ 1191 |  1     qs.s    388 | Code        | 11 |         |    3 | 00/88FC : 20 44 F9    |             jsr       {$F944}           
+ 1192 |  1     qs.s    389 | Macro       | 11 |         |    0 | 00/88FF               |             cr                          
+ 1193 |  1     qs.s    389 | Code        | 11 |         |    2 | 00/88FF : A9 8D       |             lda       #$8D              
+ 1194 |  1     qs.s    389 | Code        | 11 |         |    3 | 00/8901 : 20 ED FD    |             jsr       {$FDED}           
+ 1195 |  1     qs.s    390 | Code        | 11 |         |    3 | 00/8904 : 20 0C FD    |             jsr       {$FD0C}           
+ 1196 |  1     qs.s    391 | Macro       | 11 |         |    0 | 00/8907               |             cr                          
+ 1197 |  1     qs.s    391 | Code        | 11 |         |    2 | 00/8907 : A9 8D       |             lda       #$8D              
+ 1198 |  1     qs.s    391 | Code        | 11 |         |    3 | 00/8909 : 20 ED FD    |             jsr       {$FDED}           
+ 1199 |  1     qs.s    392 | Code        | 11 |         |    1 | 00/890C : 60          |             rts                         
+ 1200 |  1     qs.s    393 | Comment     | 11 |         |    0 | 00/890D               | *
+ 1201 |  1     qs.s    394 | Code        | 11 |         |    3 | 00/890D : 4C 12 89    | debug       jmp       ddbug             
+ 1202 |  1     qs.s    395 | Data        | 11 |         |    2 | 00/8910 : 00 00       | ltmp        hex       0000              
+ 1203 |  1     qs.s    396 | Empty       | 11 |         |    0 | 00/8912               | ddbug                                   
+ 1204 |  1     qs.s    397 | Code        | 11 |         |    2 | 00/8912 : A9 00       |             lda       #$00              
+ 1205 |  1     qs.s    398 | Code        | 11 |         |    3 | 00/8914 : 8D 5D 87    |             sta       tempo1+1          
+ 1206 |  1     qs.s    399 | Code        | 11 |         |    3 | 00/8917 : 8D 5C 87    |             sta       tempo1            
+ 1207 |  1     qs.s    400 | Macro       | 11 |         |    0 | 00/891A               | doaff       getelem   {$2000};tempo1;ltmp
+ 1208 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/891A : 4C 21 89    |             jmp       ozunid_136        
+ 1209 |  1     qs.s    400 | Data        | 11 |         |    2 | 00/891D : 00 00       | ozunid_134  hex       0000              
+ 1210 |  1     qs.s    400 | Data        | 11 |         |    2 | 00/891F : 00 00       | ozunid_135  hex       0000              
+ 1211 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/8921 : A9 00       | ozunid_136  lda       #<{$2000}         ; goffset = array address
+ 1212 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8923 : 8D 1D 89    |             sta       ozunid_134        
+ 1213 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/8926 : A9 20       |             lda       #>{$2000}         
+ 1214 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8928 : 8D 1E 89    |             sta       ozunid_134+1      
+ 1215 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/892B : AD 5C 87    |             lda       tempo1            ; index x 2 (2 bytes per element)
+ 1216 |  1     qs.s    400 | Code        | 11 |         |    1 | 00/892E : 0A          |             asl                         ; stored in tmp
+ 1217 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/892F : 8D 1F 89    |             sta       ozunid_135        
+ 1218 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8932 : AD 5D 87    |             lda       tempo1+1          
+ 1219 |  1     qs.s    400 | Code        | 11 |         |    1 | 00/8935 : 2A          |             rol                         
+ 1220 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8936 : 8D 20 89    |             sta       ozunid_135+1      
+ 1221 |  1     qs.s    400 | Empty       | 11 |         |    0 | 00/8939               |                                         
+ 1222 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8939 : AD 1D 89    |             lda       ozunid_134        ; goffset = array addr. + index x 2
+ 1223 |  1     qs.s    400 | Code        | 11 |         |    1 | 00/893C : 18          |             clc                         
+ 1224 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/893D : 6D 1F 89    |             adc       ozunid_135        
+ 1225 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8940 : 8D 1D 89    |             sta       ozunid_134        
+ 1226 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8943 : AD 1E 89    |             lda       ozunid_134+1      
+ 1227 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8946 : 6D 20 89    |             adc       ozunid_135+1      
+ 1228 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8949 : 8D 1E 89    |             sta       ozunid_134+1      
+ 1229 |  1     qs.s    400 | Empty       | 11 |         |    0 | 00/894C               |                                         
+ 1231 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/894C : A2 00       |             ldx       #$00              
+ 1232 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/894E : BD 1D 89    | ozunid_137  lda       ozunid_134,x      
+ 1233 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/8951 : 95 08       |             sta       {$08},x           
+ 1234 |  1     qs.s    400 | Code        | 11 |         |    1 | 00/8953 : E8          |             inx                         
+ 1235 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/8954 : E0 02       |             cpx       #2                
+ 1236 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/8956 : D0 F6       |             bne       ozunid_137        
+ 1237 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/8958 : A0 00       |             ldy       #$00              
+ 1238 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/895A : B1 08       |             lda       ({$08}),y         
+ 1239 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/895C : 8D 10 89    |             sta       ltmp              
+ 1240 |  1     qs.s    400 | Code        | 11 |         |    1 | 00/895F : C8          |             iny                         
+ 1241 |  1     qs.s    400 | Code        | 11 |         |    2 | 00/8960 : B1 08       |             lda       ({$08}),y         
+ 1242 |  1     qs.s    400 | Code        | 11 |         |    3 | 00/8962 : 8D 11 89    |             sta       ltmp+1            
+ 1243 |  1     qs.s    401 | Code        | 11 |         |    2 | 00/8965 : A9 A4       |             lda       #"$"              
+ 1244 |  1     qs.s    402 | Code        | 11 |         |    3 | 00/8967 : 20 ED FD    |             jsr       {$FDED}           
+ 1245 |  1     qs.s    403 | Code        | 11 |         |    3 | 00/896A : AE 11 89    |             ldx       ltmp+1            
+ 1246 |  1     qs.s    404 | Code        | 11 |         |    3 | 00/896D : 20 44 F9    |             jsr       {$F944}           
+ 1247 |  1     qs.s    405 | Code        | 11 |         |    3 | 00/8970 : AE 10 89    |             ldx       ltmp              
+ 1248 |  1     qs.s    406 | Code        | 11 |         |    3 | 00/8973 : 20 44 F9    |             jsr       {$F944}           
+ 1249 |  1     qs.s    407 | Code        | 11 |         |    2 | 00/8976 : A9 A0       |             lda       #$A0              
+ 1250 |  1     qs.s    408 | Code        | 11 |         |    3 | 00/8978 : 20 ED FD    |             jsr       {$FDED}           
+ 1251 |  1     qs.s    409 | Code        | 11 |         |    3 | 00/897B : EE 5C 87    |             inc       tempo1            
+ 1252 |  1     qs.s    410 | Code        | 11 |         |    3 | 00/897E : AD 5C 87    |             lda       tempo1            
+ 1253 |  1     qs.s    411 | Code        | 11 |         |    2 | 00/8981 : C9 0A       |             cmp       #10               
+ 1254 |  1     qs.s    412 | Code        | 11 |         |    2 | 00/8983 : F0 03       |             beq       doend             
+ 1255 |  1     qs.s    413 | Code        | 11 |         |    3 | 00/8985 : 4C 1A 89    |             jmp       doaff             
+ 1256 |  1     qs.s    414 | Code        | 11 |         |    1 | 00/8988 : 60          | doend       rts                         
+ 1257 |  1     qs.s    415 | Comment     | 11 |         |    0 | 00/8989               | *
+ 1258 |  1     qs.s    416 | Comment     | 11 |         |    0 | 00/8989               | * Checking routine
+ 1259 |  1     qs.s    417 | Comment     | 11 |         |    0 | 00/8989               | *
+ 1260 |  1     qs.s    418 | Empty       | 11 |         |    0 | 00/8989               | check                                   
+ 1261 |  1     qs.s    419 | Code        | 11 |         |    3 | 00/8989 : AD 4E 87    |             lda       dnb               ; tempo2 = integer count - 1
+ 1262 |  1     qs.s    420 | Code        | 11 |         |    3 | 00/898C : 8D 5E 87    |             sta       tempo2            
+ 1263 |  1     qs.s    421 | Code        | 11 |         |    3 | 00/898F : AD 4F 87    |             lda       dnb+1             
+ 1264 |  1     qs.s    422 | Code        | 11 |         |    3 | 00/8992 : 8D 5F 87    |             sta       tempo2+1          
+ 1265 |  1     qs.s    423 | Macro       | 11 |         |    0 | 00/8995               |             m_dec     tempo2            ; counter = array size - 1
+ 1266 |  1     qs.s    423 | Code        | 11 |         |    3 | 00/8995 : AD 5E 87    |             lda       tempo2            
+ 1267 |  1     qs.s    423 | Code        | 11 |         |    2 | 00/8998 : D0 03       |             bne       ozunid_138        
+ 1268 |  1     qs.s    423 | Code        | 11 |         |    3 | 00/899A : CE 5F 87    |             dec       tempo2+1          
+ 1269 |  1     qs.s    423 | Code        | 11 |         |    3 | 00/899D : CE 5E 87    | ozunid_138  dec       tempo2            
+ 1270 |  1     qs.s    424 | Comment     | 11 |         |    0 | 00/89A0               | *
+ 1271 |  1     qs.s    425 | Code        | 11 |         |    2 | 00/89A0 : A9 00       |             lda       #<{$2000}         ; ptr points to sorted array
+ 1272 |  1     qs.s    426 | Code        | 11 |         |    2 | 00/89A2 : 85 08       |             sta       {$08}             
+ 1273 |  1     qs.s    427 | Code        | 11 |         |    2 | 00/89A4 : A9 20       |             lda       #>{$2000}         
+ 1274 |  1     qs.s    428 | Code        | 11 |         |    2 | 00/89A6 : 85 09       |             sta       {$08}+1           
+ 1275 |  1     qs.s    429 | Comment     | 11 |         |    0 | 00/89A8               | *
+ 1276 |  1     qs.s    430 | Code        | 11 |         |    2 | 00/89A8 : A0 00       | lcheck      ldy       #$0               ; compare integer n and integer n+1
+ 1277 |  1     qs.s    431 | Code        | 11 |         |    2 | 00/89AA : B1 08       |             lda       ({$08}),y         
+ 1278 |  1     qs.s    432 | Code        | 11 |         |    3 | 00/89AC : 8D 5A 87    |             sta       tempo             
+ 1279 |  1     qs.s    433 | Code        | 11 |         |    1 | 00/89AF : C8          |             iny                         
+ 1280 |  1     qs.s    434 | Code        | 11 |         |    2 | 00/89B0 : B1 08       |             lda       ({$08}),y         
+ 1281 |  1     qs.s    435 | Code        | 11 |         |    3 | 00/89B2 : 8D 5B 87    |             sta       tempo+1           
+ 1282 |  1     qs.s    436 | Code        | 11 |         |    1 | 00/89B5 : C8          |             iny                         
+ 1283 |  1     qs.s    437 | Code        | 11 |         |    2 | 00/89B6 : B1 08       |             lda       ({$08}),y         
+ 1284 |  1     qs.s    438 | Code        | 11 |         |    3 | 00/89B8 : 8D 5C 87    |             sta       tempo1            
+ 1285 |  1     qs.s    439 | Code        | 11 |         |    1 | 00/89BB : C8          |             iny                         
+ 1286 |  1     qs.s    440 | Code        | 11 |         |    2 | 00/89BC : B1 08       |             lda       ({$08}),y         
+ 1287 |  1     qs.s    441 | Code        | 11 |         |    3 | 00/89BE : 8D 5D 87    |             sta       tempo1+1          
+ 1288 |  1     qs.s    442 | Macro       | 11 |         |    0 | 00/89C1               |             supeq     tempo1;tempo      
+ 1289 |  1     qs.s    442 | Code        | 11 |         |    3 | 00/89C1 : AD 5D 87    |             lda       tempo1+1          
+ 1290 |  1     qs.s    442 | Code        | 11 |         |    3 | 00/89C4 : CD 5B 87    |             cmp       tempo+1           
+ 1291 |  1     qs.s    442 | Code        | 11 |         |    2 | 00/89C7 : F0 03       |             beq       ozunid_139        ; hi(A) > hi (B) see lo
+ 1292 |  1     qs.s    442 | Code        | 11 |         |    3 | 00/89C9 : 4C D2 89    |             jmp       ozunid_140        ; if A >= B : C = 1, if A < B : C = 0
+ 1293 |  1     qs.s    442 | Code        | 11 |         |    3 | 00/89CC : AD 5C 87    | ozunid_139  lda       tempo1            
+ 1294 |  1     qs.s    442 | Code        | 11 |         |    3 | 00/89CF : CD 5A 87    |             cmp       tempo             
+ 1295 |  1     qs.s    442 | Empty       | 11 |         |    0 | 00/89D2               | ozunid_140                              
+ 1296 |  1     qs.s    443 | Code        | 11 |         |    2 | 00/89D2 : 90 21       |             bcc       erroron           ; tempo1 >= tempo ?
+ 1297 |  1     qs.s    444 | Empty       | 11 |         |    0 | 00/89D4               |                                         
+ 1298 |  1     qs.s    445 | Macro       | 11 |         |    0 | 00/89D4               |             m_inc     {$08}             ; next integer
+ 1299 |  1     qs.s    445 | Code        | 11 |         |    2 | 00/89D4 : E6 08       |             inc       {$08}             
+ 1300 |  1     qs.s    445 | Code        | 11 |         |    2 | 00/89D6 : D0 02       |             bne       ozunid_141        
+ 1301 |  1     qs.s    445 | Code        | 11 |         |    2 | 00/89D8 : E6 09       |             inc       {$08}+1           
+ 1302 |  1     qs.s    445 | Empty       | 11 |         |    0 | 00/89DA               | ozunid_141                              
+ 1303 |  1     qs.s    446 | Macro       | 11 |         |    0 | 00/89DA               |             m_inc     {$08}             
+ 1304 |  1     qs.s    446 | Code        | 11 |         |    2 | 00/89DA : E6 08       |             inc       {$08}             
+ 1305 |  1     qs.s    446 | Code        | 11 |         |    2 | 00/89DC : D0 02       |             bne       ozunid_142        
+ 1306 |  1     qs.s    446 | Code        | 11 |         |    2 | 00/89DE : E6 09       |             inc       {$08}+1           
+ 1307 |  1     qs.s    446 | Empty       | 11 |         |    0 | 00/89E0               | ozunid_142                              
+ 1308 |  1     qs.s    447 | Macro       | 11 |         |    0 | 00/89E0               |             m_dec     tempo2            ; dec counter
+ 1309 |  1     qs.s    447 | Code        | 11 |         |    3 | 00/89E0 : AD 5E 87    |             lda       tempo2            
+ 1310 |  1     qs.s    447 | Code        | 11 |         |    2 | 00/89E3 : D0 03       |             bne       ozunid_143        
+ 1311 |  1     qs.s    447 | Code        | 11 |         |    3 | 00/89E5 : CE 5F 87    |             dec       tempo2+1          
+ 1312 |  1     qs.s    447 | Code        | 11 |         |    3 | 00/89E8 : CE 5E 87    | ozunid_143  dec       tempo2            
+ 1313 |  1     qs.s    448 | Code        | 11 |         |    3 | 00/89EB : AD 5E 87    |             lda       tempo2            
+ 1314 |  1     qs.s    449 | Code        | 11 |         |    3 | 00/89EE : 0D 5F 87    |             ora       tempo2+1          
+ 1315 |  1     qs.s    450 | Code        | 11 |         |    2 | 00/89F1 : D0 B5       |             bne       lcheck            
+ 1316 |  1     qs.s    451 | Code        | 11 |         |    1 | 00/89F3 : 18          |             clc                         ; no error flag
+ 1317 |  1     qs.s    452 | Code        | 11 |         |    1 | 00/89F4 : 60          |             rts                         
+ 1318 |  1     qs.s    453 | Code        | 11 |         |    1 | 00/89F5 : 38          | erroron     sec                         ; error flag
+ 1319 |  1     qs.s    454 | Code        | 11 |         |    1 | 00/89F6 : 60          |             rts                         
+ 1320 |  1     qs.s    455 | Empty       | 11 |         |    0 | 00/89F7               |                                         
+ 1321 |  1     qs.s    456 | Empty       | 11 |         |    0 | 00/89F7               |                                         
+ 1322 |  1     qs.s    457 | Empty       | 11 |         |    0 | 00/89F7               |                                         
+ 1323 |  1     qs.s    458 | Empty       | 11 |         |    0 | 00/89F7               |                                         
 ------+--------------------+-------------+----+---------+------+-----------------------+-------------------------------------------------------------------
