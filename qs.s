@@ -42,7 +42,7 @@ datab   equ $2000       ; base address of data
         jsr home
         printc strib
         cr
-        prnstr strib2
+        printc strib2
         cr
         cr
         prnstr sgene
@@ -246,7 +246,7 @@ endprog prnstr snoerr
         cr
 outprg  cr
         cr
-        prnstr endstr
+        printc endstr
         cr
         cr
         rts             ; END of program

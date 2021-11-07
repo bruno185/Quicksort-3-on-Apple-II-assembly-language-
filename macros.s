@@ -289,8 +289,8 @@ fgetlen  EOM
 printc  MAC             ; dispay a string center
         jmp mainpc
 tempo   hex 00
-mainpc  getlen ]1       ; of the screen
-        txa
+mainpc  lda ]1       ; of the screen
+
         lsr             ; / 2
         sta tempo
         get80
@@ -304,7 +304,7 @@ pc40    sec
 esp     jsr cout
         dex
         bne esp
-        print ]1
+        prnstr ]1
         EOM
 *
 
