@@ -40,7 +40,7 @@ datab   equ $2000       ; base address of data
         lda #$03
         jsr outport
         jsr home
-        prnstr strib
+        printc strib
         cr
         prnstr strib2
         cr

@@ -266,4 +266,46 @@ lpstr   lda ]1+1,x
         bne lpstr
 prnste  EOM
 *
+*
+get80   MAC             ; 80 col : Carry = 1 
+        lda col80       ; 40 col : Carry = 0
+        bmi do80
+        clc
+        bcc do40        ; = jmp             
+do80    sec
+do40    EOM  
+
+*
+getlen  MAC             ; return string length in x
+        ldx #$00
+loopgetl lda ]1,x
+        beq fgetlen
+        inx
+        jmp loopgetl
+fgetlen  EOM
+*
+* Displays a 0 terminated string in argument 
+* in center of screen
+printc  MAC             ; dispay a string center
+        jmp mainpc
+tempo   hex 00
+mainpc  getlen ]1       ; of the screen
+        txa
+        lsr             ; / 2
+        sta tempo
+        get80
+        lda #$14        ; = half line
+        bcc pc40
+        lda #$28
+pc40    sec
+        sbc tempo
+        tax 
+        lda #" "        ; fill with spaces
+esp     jsr cout
+        dex
+        bne esp
+        print ]1
+        EOM
+*
+
         FIN

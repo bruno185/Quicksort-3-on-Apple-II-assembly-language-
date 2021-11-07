@@ -16,6 +16,9 @@ auxmov  equ $C311
 xfer    equ $C314
 wait    equ $FCA8
 outport equ $FE95
+col80off    equ $C00C
+col80on     equ $C00D
+col80       equ $C01F 
 *
 * page 0
 *

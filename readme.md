@@ -22,7 +22,6 @@ This archive contains a disk image to be used it with Applewin or your favourite
 * Boot qs.do image disk
 * type brun qs
 
-
 ## Making
 
 * First implemented and tested on Delphi (see pascal code Quicksort.pas)
