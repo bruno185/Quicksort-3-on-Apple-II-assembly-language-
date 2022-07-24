@@ -53,4 +53,3 @@ Load source
 Enter editor (e) and try to assemble (asm)
 You will probably encounter new errors, quite simple to correct, like too long lines
 You will want to add a LST OFF instruction for faster assembling.
-
