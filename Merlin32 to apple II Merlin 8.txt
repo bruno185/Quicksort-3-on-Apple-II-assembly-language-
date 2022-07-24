@@ -4,6 +4,11 @@
 *                                             *
 * * * * * * * * * * * * * * * * * * * * * * * *
 
+I have written a program that make all the work, here :
+https://github.com/bruno185/Merlin32-to-Merlin8-16-Converter-Apple-II-
+
+But you can do it manually :
+
 1/ Remove unnecessary spaces in assembly source files
 In VS Code : replace "  " (2 spaces) by " " (1 spaces) 
 Hit replace all until no double space is left
@@ -13,15 +18,27 @@ replace "BRA" by "JMP"
 replace "DEC" by 2 lines :
   SEC 
   SBC #$01
-Check labels. They souhldn't start with a number. 80col produce an error in Merlin 8
+Check labels. They souhldn't start with a number. A label like "80col" produce an error in Merlin 8
 
 3/ Save with a new name
-I usually add A2 to the name of my source
-myprog.s becomes myprogA2.save
+I usually add A2 to the name of my source, to distinguish Merlin 32 et Merlin 8 file names.
+You can use any string, or none.
+I also add #040000 at the end of the file name, so Ciderpress can change attribute when add the file on an image disk.
+So, myprog.s becomes myprogA2.s#040000
+If your main source file uses "put" or "use" + file name, you should change file names to match new file name.
+Exemple :
+Main program Merlin 32 source : 
+put myconst  
+use macros
+
+Should becomes in main program Merlin 8 source :
+put myconstA2   
+use macrosA2
+
 
 4/ End of lines
-Use your favorite hex editor to replace "OAOD" hex string by "OD"
-Save file.
+Use your favorite hex editor to replace "0D0A" hex string by "OD" ( = replace carrige return + line feed by carrige return) in each source file.
+Save files .
 
 5/Transfer to Apple II
 I use Ciderpress to copy files to Floppy emu or any disk emulator
@@ -36,3 +53,4 @@ Load source
 Enter editor (e) and try to assemble (asm)
 You will probably encounter new errors, quite simple to correct, like too long lines
 You will want to add a LST OFF instruction for faster assembling.
+

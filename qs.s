@@ -10,7 +10,7 @@
 * $8000 : program
 *
         put const       ; file of equ
-        put macros      ; file of macros
+        use macros      ; file of macros
 
 *********************************************
 *  Bug fix :
