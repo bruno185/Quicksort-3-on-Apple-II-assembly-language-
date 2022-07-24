@@ -1,6 +1,6 @@
 * * * * * * * * * * * * * * * * * * * * * * * *
 *                                             *
-* Merlin32 to apple II Merlin 8 instructions  *
+* Merlin32 to apple II Merlin 8 instructions   *
 *                                             *
 * * * * * * * * * * * * * * * * * * * * * * * *
 
